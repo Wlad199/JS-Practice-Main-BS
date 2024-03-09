@@ -1,0 +1,94 @@
+.page{
+	max-width: 1000px;
+	margin: 0 auto;
+	height: 1000px;
+}
+.page div{
+	padding-bottom: 30px;
+}
+
+body{
+	/*overflow: scroll;*/
+}
+
+.button{
+	user-select: none;
+	display: block;
+	margin-bottom: 25px;
+	height: 50px;
+	width: 100px;
+	background-color: #e90ac1;
+	border: none;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+}
+.button:hover{
+	background-color: #af0792;
+}
+.navigation{
+	display: flex;
+	gap: 150px;
+	/*justify-content: space-between;*/
+	align-items: center;
+}
+
+.number{
+	font-size: 150px;
+}
+
+ /*textarea counter -----------------------------*/
+
+ textarea {
+	height: 150px;
+	width: 250px;
+}
+
+ /*Выпадающее меню -----------------------------*/
+
+.menu {
+	font-size: 18px;
+	display: inline-block;
+}
+.menu-button {
+	border: none;
+	background-color: #06c632;
+	padding: 10px 15px;
+	border-radius: 5px;
+	width: 200px;
+	text-align: center;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.menu-button span:first-child{
+	display: block;
+}
+.menu-button span:last-child{
+	display: none;
+}
+.menu._active .menu-button span:first-child{
+	display: none;
+}
+.menu._active .menu-button span:last-child{
+	display: block;
+}
+
+.menu-list {
+	width: 200px;
+	list-style: none;
+	text-decoration: none;
+	color: #000;
+	background-color: #a84bf3;
+	padding: 0;
+	padding: 10px 0;
+	margin: 0;
+	display: none;
+}
+.menu._active .menu-list{
+	display: block;
+}
+
+.menu-list li{
+	margin-bottom: 10px;
+	text-align: center;
+}
