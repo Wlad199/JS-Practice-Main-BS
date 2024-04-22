@@ -1,0 +1,6 @@
+{
+	"editor.inlayHints.enabled": "offUnlessPressed",
+	"editor.parameterHints.cycle": false,
+	"editor.parameterHints.enabled": true,
+	"window.density.editorTabHeight": "compact"
+}
