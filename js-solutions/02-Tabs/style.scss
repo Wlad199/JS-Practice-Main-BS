@@ -1,0 +1,38 @@
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.tabs {
+	font-size: 22px;
+	&__nav {
+		display: flex;
+	}
+	&__btn {
+		background-color: #fcc525;
+		padding: 15px 25px;
+		//outline: 1px solid #000;
+		transition: all 0.2s ease 0s;
+		&:hover{
+		background-color: #d19e03;
+		}
+		&._active{
+			background-color: #b7d2eb;
+		}
+	}
+	&__content {
+		background-color: #b7d2eb;
+		padding: 25px;
+		font-size: 18px;
+		line-height: 130%;
+	}
+	&__item {
+		display: none;
+		p{
+			padding-bottom: 15px;
+		}
+		&._active{
+			display: block;
+		}
+	}
+}

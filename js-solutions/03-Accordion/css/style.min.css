@@ -1,0 +1,29 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.accordion {
+  height: 50px;
+  background-color: #25b0f1;
+  width: 100%;
+  font-size: 22px;
+  outline: 1px solid #000;
+  transition: all 0.2s ease 0s;
+}
+.accordion:hover {
+  background-color: #0d87c1;
+}
+
+.content {
+  background-color: #65c7f5;
+  width: 100%;
+  padding: 20px;
+  font-size: 18px;
+  display: none;
+  transition: all 0.3s ease 0s;
+}
+.content._active {
+  display: block;
+}

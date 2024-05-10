@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS-Solution</title>
+	<link rel="stylesheet" href="null.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1 class="title">Формы и JS</h1>
+		<form action="#" class="form__body">
+			<!-- Форма ввода -->
+			<div class="form__item">
+				<label for="formName">Имя</label>
+				<input type="text" id="formName" name="name" autocomplete="off" class="form__input" placeholder="Name">
+			</div>
+			<div class="form__item">
+				<label for="formPass">Пароль</label>
+				<input type="password" id="formPass" name="pass" autocomplete="off" class="form__input" placeholder="password">
+			</div>
+			<div class="form__item">
+				<label for="formEmail">E-mail</label>
+				<input type="text" id="formEmail" name="email" autocomplete="off" class="form__input" placeholder="E-mail">
+			</div>
+			<!--<textarea-->
+			<div class="form__item">
+				<label for="formMessage" class="form__label">Сообщение</label>
+				<textarea name="message" id="formMessage" maxlength="30" class="form__input"></textarea>
+				<div class="textarea-counter">Осталось <span></span> символов</div>
+			</div>
+			<!--Радио кнопки-->
+			<div class="form__item">
+				<div class="form__label">Радиокнопки</div>
+				<div class="options">
+					<div class="options__item">
+						<input id="formButtonOne" type="radio" value="one" name="radio" class="options__input">
+						<label for="formButtonOne" class="options__label"><span>Кнопка #1</span></label>
+					</div>
+					<div class="options__item">
+						<input id="formButtonTwo" checked type="radio" value="two" name="radio" class="options__input">
+						<label for="formButtonTwo" class="options__label"><span>Кнопка #2</span></label>
+					</div>
+				</div>
+			</div>
+			<!--Чекбокс-->
+			<div class="form__item">
+				<div class="checkbox">
+					<input id="formAgreement" checked type="checkbox" name="agreemant" class="checkbox__input">
+					<label for="formAgreement" class="checkbox__label"><span>Я даю своё согласие на обработку моих персональных данных в соответствии с <a href="#"> условиями</a></span></label>
+				</div>
+			</div>
+			<!--Выпадающий список-->
+			<div class="form__item">
+				<div class="form__label">Возраст</div>
+				<select name="age" class="select">
+					<option value="от 18 до 25" selected>Молодой</option>
+					<option value="от 25 до 45">Старый</option>
+					<option value="от 45">Очень старый</option>
+					<!-- option с пустым value можно использовать по умолчанию -->
+					<!--<option value="" selected></option>-->
+				</select>
+			</div>
+			<!--Прикрепить файл-->
+			<div class="form__item">
+				<div class="form__label">Прикрепить фото</div>
+				<div class="file">
+					<div class="file__item">
+						<!-- accept позволяет выбрать доступные расширения -->
+						<input id="formImage" accept=".jpg, .png, .gif" type="file" name="image" class="file__input">
+						<!-- Рисуем свою кнопку, т.к. стандартную не стилизовать -->
+						<div class="file__button">Выбрать</div>
+					</div>
+					<!-- В этот блок будет выведена превью изображения -->
+					<div id="formPreview" class="file__preview"></div>
+				</div>
+			</div>
+			<button type="submit" class="form__button">Отправить форму</button>
+		</form>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>

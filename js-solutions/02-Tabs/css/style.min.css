@@ -1,0 +1,38 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.tabs {
+  font-size: 22px;
+}
+.tabs__nav {
+  display: flex;
+}
+.tabs__btn {
+  background-color: #fcc525;
+  padding: 15px 25px;
+  transition: all 0.2s ease 0s;
+}
+.tabs__btn:hover {
+  background-color: #d19e03;
+}
+.tabs__btn._active {
+  background-color: #b7d2eb;
+}
+.tabs__content {
+  background-color: #b7d2eb;
+  padding: 25px;
+  font-size: 18px;
+  line-height: 130%;
+}
+.tabs__item {
+  display: none;
+}
+.tabs__item p {
+  padding-bottom: 15px;
+}
+.tabs__item._active {
+  display: block;
+}
