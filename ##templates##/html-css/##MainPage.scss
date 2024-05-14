@@ -1,0 +1,151 @@
+//todo Ссылки ========================================================================================//
+// FLS & ЧФ ======================================//
+// https://fls.guru/flexbox.html =================//
+// https://legosite.kz/ts/fls/ ===================//
+
+/*Основные Стили													*/	@import "#CssBase";
+/*FLEX & GRID															*/	@import "libs/Flex&Grid";
+/*Формы																		*/	@import "libs/form";
+/*Фигуры																	*/	@import "libs/figures";
+/*Анимации Кнопок 												*/	@import "libs/animation";
+/*Slick-slider														*/	@import "libs/slider-slick.js";
+/*Скролл и кастомный скролл simpleBar 		*/	@import "libs/scroll & simpleBar";
+/*Кастомный ползунок											*/	@import "libs/SliderNoUi(range)";
+/*Симантика				 												*/	@import "libs/simantic";
+/*Таблицы					 												*/	@import "libs/tables.html";
+/*Видео						 												*/	@import "libs/video.html";
+
+//todo  ===============================================================================================//
+
+//* BOOKS =================//
+//Doca 																					https://doka.guide/
+//htmlbook 																			https://htmlbook.ru/html/dfn
+//WebReference 																	https://webref.ru/html
+//w3schools 																		https://www.w3schools.com/
+//html5book 																		https://html5book.ru/
+//htmlweb 																			https://htmlweb.ru/
+//css-live 																			https://css-live.ru/
+//itchief 																			https://itchief.ru/
+//? JS =================//
+//learn.javascript 															https://learn.javascript.ru/introduction-browser-events
+//html5css 																			https://html5css.ru/js/js_intro.php
+//MDM 																					https://developer.mozilla.org/ru/
+//? Sites ====================================================================================================//
+//* HTML =================//
+//<!--@@include('html/_popup.htm',{})-->
+//Спецсимволы HTML 															https://htmlweb.ru/html/symbols.php
+//Разбивка на колонки 													https://doka.guide/css/columns/
+//* JS =================//
+//Поключение плагинов ссылкой 									https://cdnjs.com/
+//EasyTabs- табы 																https://os.alfajango.com/easytabs/#tabs1-js
+//Модуль наблюдатель 														http://imakewebthings.com/waypoints/
+//* css =================//
+//Фильтр цвета 																	https://thecode.media/hue-rotate/
+//Css Animation 																https://animate.style/
+//border, outline, cursor 											https://html5book.ru/css3-ui/ UI
+//Cursor 																				https://ru.w3docs.com/tools/code-editor/6165
+//Счетчики 																			https://webformyself.com/rukovodstvo-po-css-counter/  https://doka.guide/css/css-counters/
+//Нативный Masonry Layout в CSS Grid Level 3		https://habr.com/ru/articles/526008/
+//* Instruments and Generators ================================================================================//
+//Многоцелевой генератор 												https://cssbud.com/css-generator/
+//Обрезать изображение 													https://www.iloveimg.com/ru/crop-image
+//Gradient Generator 														https://www.colorzilla.com/gradient-editor/
+//CSS Gradient 																	https://cssgradient.io/
+//Анимация 																			https://animista.net/play/basic
+//Бордер и тени 																https://neumorphism.io/#e0e0e0
+//Поддержка тегов 															https://caniuse.com/
+//Вложенность 																	https://caninclude.glitch.me/
+//Favicon 																			https://favicon.io/favicon-generator/
+
+//! Свойства ========================================================================================//
+
+//? backdrop-filter ==========================//
+//backdrop-filter: blur(5px);
+
+//? Фильтр цвета =============================//
+//https://thecode.media/hue-rotate/
+
+//? Запретить взаимодействие курсором ========//
+//pointer-events: none;
+//user-select: none; Запретить выделять
+
+//? Запретить выделение текста ===============//
+//user-select: none;
+
+//? Зачеркнутый текст ===============//
+//text-decoration: line-through;
+//text-decoration-color: red; // Выбрать цвет
+
+//? Убирать маркеры списка ===============//
+//list-style-type: none; 
+
+//? svh, lvh, dvh ===============//
+//Lvh (large viewport height) задает размеры по самому большому размеру viewport, когда панель навигации скрыта. 
+//Svh (Small viewport height). Данная единица измерения задает самый маленький размер viewport, когда панель навигации отображается. 
+//Dvh (Dynamic viewport height) динамически меняет значение высоты относительно того, открыта панель с навигацией или нет.
+
+//? loading = "lazy" Ленивая загрузка ===============//
+
+//? E-mail & Tel ===============//
+//https://htmlacademy.ru/blog/html/mailto
+//<a href="tel:+375291136969">+375 (29) 113-69-69</a>
+//<a href="mailto:mail@htmlacademy.ru">Напишите нам</a>
+
+//? Социалки ==========================//
+//https://itchief.ru/javascript/social-buttons
+
+//? max, min, clamp ==========================//
+//.element {
+//	width: min(50%, 500px);
+//	Выберет наименьшее (наибольшее) значение
+//}
+
+// clamp =================//
+//.element {
+//	width: clamp(200px, 50%, 1000px);
+//	200px - минимальное значение, 1000px - максимальное, 50% - вычисляемое
+//	Примет вычисляемое значение, если оно в установленных пределах
+//}
+
+//? Обрезать невлезающий текст ===============//
+//.block{
+//	overflow: hidden;
+//	text-overflow: ellipsis;
+//	white-space:nowrap;
+//}
+
+// or =================//
+
+//.block{
+//	display: -webkit-box;
+//	overflow: hidden;
+//	-webkit-box-orient: vertical;
+//	-webkit-line-clamp: 3; 3 строчки, далее ...
+//}
+
+//? Соотношение сторон aspect-ratio ==========================//
+//.container {
+//  width: 200px;
+//  aspect-ratio: 1 / 1;
+//}
+//	auto — соотношение сторон считается автоматически.
+//	<width> / <height> — соотношение сторон всегда считается относительно ширины и высоты блока.
+//	auto <width> / <height> — совмещённая запись.
+//	Чтобы избежать искажений картинки, можно использовать свойство object-fit.
+//	Свойство нельзя применить к строчным элементам.
+
+//? Подсказка при наведении ==================================//
+//<span data-title="Вывести подсказку"><img src="@img/s02.jpg" alt=""></span>
+
+//span:hover::after{
+//	content: attr(data-title);
+//}
+
+//? В степень ===============================================//
+//<sup>Текст</sup>
+
+//? уменьшает размер шрифта =================================//
+//Тег <small> уменьшает размер шрифта на единицу по сравнению с обычным текстом. 
+
+//?  =======================================================//
+
