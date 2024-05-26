@@ -160,6 +160,37 @@ alert(str.something);
 
 
 !  ====================================================================================================//
+? =================//
+
+for (var i = 0; i <= 5; i++) {
+	setTimeout(function () {
+		console.log(i)
+	}, i * 600)
+}
+
+6 6 6 6 6 6
+? =================//
+
+for (let i = 0; i <= 5; i++) {
+	setTimeout(function () {
+		console.log(i)
+	}, i * 600)
+}
+0 1 2 3 4 5
+? =================//
+
+let object = {
+	name: 'Alex',
+	showName: () => {
+		return `Hello ${this.name}`
+	}
+}
+
+Hello undefinded
+? =================//
+
+
+
 
 
 
