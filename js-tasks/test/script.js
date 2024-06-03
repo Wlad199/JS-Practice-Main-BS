@@ -1,9 +1,8 @@
-let object = {
-	name: 'Alex',
-	showName: () => {
-		return `Hello ${this.name}`
-	}
+const names = ['Alex', 'Jhon']
+
+
+function test(data) {
+	data.forEach((name, i, arr) => i)
 }
 
-
-console.log(object.showName())
+console.log(test(names))

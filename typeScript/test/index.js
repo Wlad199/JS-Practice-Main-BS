@@ -1,1 +1,1 @@
-console.log(51 /* Fruits.Banana */);
+"use strict";
