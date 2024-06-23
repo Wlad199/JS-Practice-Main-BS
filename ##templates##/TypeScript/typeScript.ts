@@ -10,6 +10,7 @@ npm i ts-node -g						Установка ts-node
 tsc -help										Список команд
 tsc --init									Инициализировать проект
 tsc index.ts (tsc)					Запустить компилятор
+tsc -w index.ts							Автоматическая перекомпиляция (--watch)
 clear												Очистить консоль
 node index.js								Выполнить код из файла в терминале
 ts-node index.ts						Выполнить код
