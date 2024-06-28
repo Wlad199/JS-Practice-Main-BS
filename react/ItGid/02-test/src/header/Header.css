@@ -1,0 +1,9 @@
+.header-wrapper{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #e43d30;
+	img{
+		max-width: 60px;
+	}
+}
