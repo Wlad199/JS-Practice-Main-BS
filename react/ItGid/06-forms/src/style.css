@@ -1,0 +1,7 @@
+input, select{
+	margin-bottom: 25px;
+}
+input[type='submit']{
+	padding: 10px 20px;
+	cursor: pointer;
+}

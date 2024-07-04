@@ -731,6 +731,7 @@ console.log(new Date(currentIso).getTime())
 //! Копировать объект
 //! Var области видения, всплытие
 //! Data()
+! EventLoop
 ! slice splice
 ! работа стека и event loop / макро и микрозадачи
 ! Регулярные выражения и экранирование
@@ -743,6 +744,10 @@ console.log(new Date(currentIso).getTime())
 ! Рекурсия
 ! Промисификация
 ! Особенности ES6
+! Основы Node.js (Создание сервера, встроенные модули)
+! Webpack/vite
+! Bootstrap/TaiwindCSS
+! Redux / Redux Toolkit
 ! Тесты
 ! try - catch ? async await
 ! Вопросы из собеседований
@@ -750,6 +755,27 @@ console.log(new Date(currentIso).getTime())
 
 ! ====================================================================================================//
 ??????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+get/set =================//
+
+class User {
+	constructor(name) {
+	}
+	set name(name) {
+		this._name = name.trim().toLowerCase()
+	}
+	get name() {
+		return this._name
+	}
+}
+
+const alex = new User()
+alex.name = '    AlEx'
+
+console.log(alex.name)
+
+ =================//
+
 function filter_list(l) {
 return l.filter(Number.isInteger);
 }
