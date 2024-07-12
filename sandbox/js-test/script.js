@@ -1,15 +1,11 @@
-class User {
-	constructor(name) {
-	}
-	set name(name) {
-		this._name = name.trim().toLowerCase()
-	}
-	get name() {
-		return this._name
-	}
-}
+const a = [1, 2, 3, 4, 5]
+let c = 'string'
 
-const alex = new User()
-alex.name = '    AlEx'
+//const b = a.map(item => {
+//	return item * 2
+//})
 
-console.log(alex.name)
+const b = Array.prototype.map.call(c, item => item).reverse().join('')
+
+console.log(a)
+console.log(b)
