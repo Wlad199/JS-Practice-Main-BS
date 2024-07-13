@@ -743,6 +743,7 @@ console.log(new Date(currentIso).getTime())
 ! get set
 ! Map Set
 ! every / some
+! Debugger
 ! Рекурсия
 ! Промисификация
 ! Особенности ES6
