@@ -115,9 +115,9 @@ localSrever JSON server
 15	Set в JavaScript																13 / 13
 16	Перебор массивов: for, for in, for of						15 / 15
 17	Методы массивов: map, filter										10 / 10
-18	Методы массивов: join, split, forEach 					10 /
-19	События мыши																		20 /
-20	События клавиатуры															11 /
+18	Методы массивов: join, split, forEach 					10 / 10
+19	События мыши																		20 / 20
+20	События клавиатуры															11 / 6
 21	touch события																		12 /
 22	Try Catch																				5  /
 23	LocalStorage. Сохраняем все											8  /
@@ -712,6 +712,8 @@ console.log(new Date(currentIso).getTime())
 
 
 
+* Useful Articles ====================================================================================================//
+API			https://habr.com/ru/articles/464261/#api
 
 
 

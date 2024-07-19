@@ -1,11 +1,18 @@
-const a = [1, 2, 3, 4, 5]
-let c = 'string'
+let json = '{ "age": 30 }'
 
-//const b = a.map(item => {
-//	return item * 2
-//})
-
-const b = Array.prototype.map.call(c, item => item).reverse().join('')
-
-console.log(a)
-console.log(b)
+try {
+	try {
+		json = JSON.parse(json)
+		if (!json.name) {
+			throw new Error('There is no name!')
+		}
+	} catch (err) {
+		if (err instanceof SyntaxError) {
+			console.warn(err.message)
+		} else {
+			throw (err)
+		}
+	}
+} catch (err) {
+	console.log(err)
+}

@@ -3,6 +3,8 @@ React (https://unpkg.com/react@18/umd/react.development.js)
 React DOM (https://unpkg.com/react-dom@18/umd/react-dom.development.js)
 Babel (https://unpkg.com/babel-standalone@6/babel.min.js)
 
+Тестовые массивы (https://jsonplaceholder.typicode.com/)
+
 npm commands
 	npm init 															создать package.json
 	npm i (npm install)										установить зависимости
@@ -143,27 +145,74 @@ React будет вызывать componentDidMount, когда ваш комп�
 	Можно передать в массив стейт, тогда useEffect будет срабатывать только при изненении этого стейта React.useEffect(() => {}, [count])
 
  ============
-componentDidUpdate() следить за любыми обговлениями
-	React.useEffect(() => {
-		console.log('component was update')
-	})
+	componentDidUpdate() следить за любыми обговлениями
+		React.useEffect(() => {
+			console.log('component was update')
+		})
 
 	============
 	componentDidUpdate() следить только за указанными стейтами
-	React.useEffect(() => {
-		console.log('component was showed')
-	}, [count, numbers])
+		React.useEffect(() => {
+			console.log('component was showed')
+		}, [count, numbers])
 
-	============ componentDidMount() + componentWillUnmount()
-		componentDidMount() сработает только 1 раз
-		Вложенная калл-бэк ф-я работает как componentWillUnmount()
-	React.useEffect(() => {
-		console.log('component was showed')
-		return () => {
-			console.log('Компонент удалён')
-		}
-	}, [])
+	============
+	componentDidMount() + componentWillUnmount()
+	componentDidMount() сработает только 1 раз
+	Вложенная калл-бэк ф-я работает как componentWillUnmount()
+		React.useEffect(() => {
+			console.log('component was showed')
+			return () => {
+				console.log('Компонент удалён')
+			}
+		}, [])
 
+
+? Navigation =================//
+(https://www.youtube.com/playlist?list=PLiZoB8JBsdznY1XwBcBhHL9L7S_shPGVE)
+
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+
+	<>
+		<BrowserRouter>
+			<nav>
+				<Link to='/'>Главная</Link>
+				<Link to='/cat'>Категории</Link>
+				<Link to='/about'>О сайте</Link>
+			</nav>
+
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/about' element={<About />} />
+				<Route path='/cat' element={<Category />} />
+				<Route path='*' element={<Notfound />} />
+			</Routes>
+		</BrowserRouter>
+	</>
+
+В v6 exact по умолчанию
+
+NavLink добавляет активной вкладке класс active
+Добавить собственный класс (можно записать в константу)
+	className={({ isActive }) => isActive ? '_active' : ''}
+
+
+? Прередача данных =================// 
+https://it-dev-journal.ru/articles/kak-peredavat-dannye-mezhdu-komponentami-v-react-js
+Данные можно передавать:
+	через пропсы
+	используя callback-функцию;
+	пробросом пропсов от уровня к уровню (prop drilling)
+	при помощи контекста (React Context AP)
+	через хранилище (store)
+
+Прередача данных:
+	От родительского компонента к дочернему - через пропсы
+	От дочернего компонента к родительскому - используются функции обратного вызова (callback-функции)
+	Между соседними компонентами - через общий предок.
+		Днные от одного Реакт компонента передаются вверх, в компонент-предок, через callback-функцию,
+		а компонент-предок передает их в другой компонент через проп.
+	Через несколько уровней вверх/вниз - prop drilling или Context API или state management библиотеки, такие как Redux, MobX, Recoil и т.д.
 
 
 ? Other =================//
@@ -181,6 +230,9 @@ checked={this.state.checkbox} для управления через стейт�
 	constructor(props) {
 		this.handler = this.handler.bind(this)
 	}
+
+Прокрутить к блоку
+	myRef.current.scrollIntoView()
 
 
 ? questions  =================//
@@ -342,7 +394,7 @@ const USERS = [
 
 */
 /*
-? Показать / Скрыть блок
+? Показать / Скрыть блок (06-forms)
 export default function App(props) {
 	const [visibleBlock, setVisibleBlock] = React.useState(true)
 

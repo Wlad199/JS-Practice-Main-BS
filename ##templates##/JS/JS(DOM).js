@@ -233,9 +233,9 @@ elem.getBoundingClientRect()		относительно документа плю
 elem.addEventListener(event, handler, [options])			для добавления
 elem.removeEventListener(event, handler, [options])		для удаления
 	Для удаления нужно передать именно ту функцию-обработчик которая была назначена.
-event - Имя события, например "click".
-handler - Ссылка на функцию-обработчик.
-options - Дополнительный объект со свойствами:
+event			Имя события, например "click".
+handler		Ссылка на функцию-обработчик.
+options		Дополнительный объект со свойствами:
 	once: если true, тогда обработчик будет автоматически удалён после выполнения.
 	capture: фаза, на которой должен сработать обработчик. options может быть false/true, это то же самое, что {capture: false/true}.
 	passive: если true, то указывает, что обработчик никогда не вызовет preventDefault()
