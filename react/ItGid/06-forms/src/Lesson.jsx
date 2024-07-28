@@ -39,48 +39,48 @@ import React from 'react'
 
 //? Несколько инпутов с одинаковой функцией-обработчиком и разными именами  =================//
 
-//export default class App extends React.Component {
-//	constructor(props) {
-//		super(props)
-//		this.state = {
-//			value: '',
-//			text: '',
-//			age: 0
-//		}
-//		this.submitForm = this.submitForm.bind(this)
-//	}
+export default class App extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			value: '',
+			text: '',
+			age: 0
+		}
+		this.submitForm = this.submitForm.bind(this)
+	}
 
-//	showValue = (e) => {
-//		this.setState({
-//			[e.target.name]: e.target.value
-//		})
-//		console.log(e.target.value)
-//		console.log(e.target.name)
-//	}
+	showValue = (e) => {
+		this.setState({
+			[e.target.name]: e.target.value
+		})
+		console.log(e.target.value)
+		console.log(e.target.name)
+	}
 
-//	submitForm(e) {
-//		e.preventDefault()
-//	}
+	submitForm(e) {
+		e.preventDefault()
+	}
 
 
-//	render() {
-//		let a = ''
-//		if (this.state.value) {
-//			a = <p>Your text: {this.state.value}</p>
-//		} else {
-//			a = ''
-//		}
-//		return (
-//			<>
-//				<form onSubmit={this.submitForm}>
-//					<input onChange={this.showValue} type='text' name='value' />
-//					<input onChange={this.showValue} type="number" name='age' />
-//					<input type="submit" />
-//					{a}
-//					<p>Age: {this.state.age}</p>
-//					<p>{this.state.text}</p>
-//				</form>
-//			</>
-//		)
-//	}
-//}
+	render() {
+		let a = ''
+		if (this.state.value) {
+			a = <p>Your text: {this.state.value}</p>
+		} else {
+			a = ''
+		}
+		return (
+			<>
+				<form onSubmit={this.submitForm}>
+					<input onChange={this.showValue} type='text' name='value' />
+					<input onChange={this.showValue} type="number" name='age' />
+					<input type="submit" />
+					{a}
+					<p>Age: {this.state.age}</p>
+					<p>{this.state.text}</p>
+				</form>
+			</>
+		)
+	}
+}

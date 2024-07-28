@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from './Header'
+import Persons from './components/Persons'
 
-export default function App(props) {
+export default function App() {
 
 	return (
 		<>
-			<Header />
+			<Persons />
 		</>
 	)
 }

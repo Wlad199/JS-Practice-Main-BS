@@ -1,0 +1,30 @@
+.todoForm {
+	height: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: center;
+	input,
+	button {
+		height: 100%;
+	}
+	input {
+		padding: 15px;
+		border-radius: 5px 0 0 5px;
+		color: #185c37;
+		flex: 1 1 auto;
+		min-width: 150px;
+		&:focus {
+			outline: 1px solid #0f3c23;
+		}
+	}
+
+	button {
+		background-color: #e43c30;
+		padding: 0 15px;
+		border-radius: 0 5px 5px 0;
+		transition: all 0.2s ease 0s;
+		&:hover {
+			background-color: #bc2518;
+		}
+	}
+}

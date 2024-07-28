@@ -3,17 +3,28 @@
 // https://fls.guru/flexbox.html =================//
 // https://legosite.kz/ts/fls/ ===================//
 
-/*Основные Стили													*/	@import "#CssBase";
-/*FLEX & GRID															*/	@import "libs/Flex&Grid";
-/*Формы																		*/	@import "libs/form";
-/*Фигуры																	*/	@import "libs/figures";
-/*Анимации Кнопок 												*/	@import "libs/animation";
-/*Slick-slider														*/	@import "libs/slider-slick.js";
-/*Скролл и кастомный скролл simpleBar 		*/	@import "libs/scroll & simpleBar";
-/*Кастомный ползунок											*/	@import "libs/SliderNoUi(range)";
-/*Симантика				 												*/	@import "libs/simantic";
-/*Таблицы					 												*/	@import "libs/tables.html";
-/*Видео						 												*/	@import "libs/video.html";
+/*Основные Стили													*/
+@import "#CssBase";
+/*FLEX & GRID															*/
+@import "libs/Flex&Grid";
+/*Формы																		*/
+@import "libs/form";
+/*Фигуры																	*/
+@import "libs/figures";
+/*Анимации Кнопок 												*/
+@import "libs/animation";
+/*Slick-slider														*/
+@import "libs/slider-slick.js";
+/*Скролл и кастомный скролл simpleBar 		*/
+@import "libs/scroll & simpleBar";
+/*Кастомный ползунок											*/
+@import "libs/SliderNoUi(range)";
+/*Симантика				 												*/
+@import "libs/simantic";
+/*Таблицы					 												*/
+@import "libs/tables.html";
+/*Видео						 												*/
+@import "libs/video.html";
 
 //todo  ===============================================================================================//
 
@@ -77,11 +88,11 @@
 //text-decoration-color: red; // Выбрать цвет
 
 //? Убирать маркеры списка ===============//
-//list-style-type: none; 
+//list-style-type: none;
 
 //? svh, lvh, dvh ===============//
-//Lvh (large viewport height) задает размеры по самому большому размеру viewport, когда панель навигации скрыта. 
-//Svh (Small viewport height). Данная единица измерения задает самый маленький размер viewport, когда панель навигации отображается. 
+//Lvh (large viewport height) задает размеры по самому большому размеру viewport, когда панель навигации скрыта.
+//Svh (Small viewport height). Данная единица измерения задает самый маленький размер viewport, когда панель навигации отображается.
 //Dvh (Dynamic viewport height) динамически меняет значение высоты относительно того, открыта панель с навигацией или нет.
 
 //? loading = "lazy" Ленивая загрузка ===============//
@@ -145,7 +156,11 @@
 //<sup>Текст</sup>
 
 //? уменьшает размер шрифта =================================//
-//Тег <small> уменьшает размер шрифта на единицу по сравнению с обычным текстом. 
+//Тег <small> уменьшает размер шрифта на единицу по сравнению с обычным текстом.
 
-//?  =======================================================//
+//? CSS Селекторы =======================================================//
+// Смежные селекторы (A + B)
+// .button + .button Для всех, идущих после
 
+// Братские селекторы (A ~ B)
+// .button ~ .button Выбирает все братские элементы B, которые идут в коде после элемента A

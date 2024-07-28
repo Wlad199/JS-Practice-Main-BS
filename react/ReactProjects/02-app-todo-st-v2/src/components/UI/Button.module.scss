@@ -1,0 +1,22 @@
+.button {
+	background-color: #fac11e;
+	color: #000;
+	padding: 7px 12px 3px 12px;
+	border-radius: 5px;
+	margin-bottom: 50px;
+	transition: all 0.2s ease 0s;
+	&:hover {
+		background-color: #dfa800;
+	}
+	&[disabled] {
+		opacity: 0.5;
+		cursor: default;
+		&:hover {
+			background-color: #fac11e;
+		}
+	}
+}
+
+.button + .button {
+	margin-left: 30px;
+}

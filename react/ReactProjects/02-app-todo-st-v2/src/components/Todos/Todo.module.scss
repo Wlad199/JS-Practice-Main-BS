@@ -1,0 +1,61 @@
+.todo {
+	//height: 450px;
+	line-height: 150%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 20px;
+	border-radius: 5px;
+	gap: 15px;
+	color: #185c37;
+	background-color: #fff;
+	@media (max-width: 600px) {
+		font-size: 16px;
+		padding: 5px 10px;
+	}
+	&.active {
+		color: #b2b2b2;
+		background-color: rgba(#fff, 0.3);
+		text-decoration: line-through;
+	}
+}
+
+.todoText {
+	flex: 1 1 auto;
+	line-height: 130%;
+	//max-width: calc(100% - 31px);
+	//word-wrap: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.iconTask {
+	min-width: 25px;
+	@media (max-width: 600px) {
+		display: none;
+	}
+}
+
+.iconDelete {
+	cursor: pointer;
+	color: #b2b2b2;
+	transition: all 0.2s ease 0s;
+	&:hover {
+		color: #e43d30;
+		transform: scale(1.1);
+	}
+}
+.iconCheck {
+	cursor: pointer;
+	color: #b2b2b2;
+	transition: all 0.2s ease 0s;
+	&:hover {
+		color: #6cd9a8;
+		transform: scale(1.1);
+	}
+}
+
+.todo.active .iconCheck {
+	color: #33c481;
+}
