@@ -178,29 +178,68 @@ React будет вызывать componentDidMount, когда ваш комп�
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
-	<>
-		<BrowserRouter>
-			<nav>
-				<Link to='/'>Главная</Link>
-				<Link to='/cat'>Категории</Link>
-				<Link to='/about'>О сайте</Link>
-			</nav>
+	<BrowserRouter>
+		<nav>
+			<Link to='/'>Главная</Link>
+			<Link to='/cat'>Категории</Link>
+			<Link to='/about'>О сайте</Link>
+		</nav>
 
-			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/about' element={<About />} />
-				<Route path='/cat' element={<Category />} />
-				<Route path='*' element={<Notfound />} />
-			</Routes>
-		</BrowserRouter>
-	</>
+		<Routes>
+			<Route path='/' element={<Home />} />
+			<Route path='/about' element={<About />} />
+			<Route path='/cat' element={<Category />} />
+			<Route path='*' element={<Notfound />} />
+		</Routes>
+	</BrowserRouter>
 
 В v6 exact по умолчанию
 
 NavLink добавляет активной вкладке класс active
 Добавить собственный класс (можно записать в константу)
 	className={({ isActive }) => isActive ? '_active' : ''}
+Добавить ситли:
+	style={({ isActive }) => isActive ? { color: 'red' } : {}}
 
+Если вместо slug исрользовать id, то нужно привести его к строке:
+	<Link to={course.slug (course.id.toString()) } />
+
+Перейти по ссылке на один уровень вверх
+	to='..' relative='path' - на один уровень вверх относительно текущего пути
+	<Link to='..' relative='path'>Turn Back</Link>
+
+## Navigation-st =================//
+App:
+	При вложенном роутинге дочерние маршруты относительны родительского
+	Т.е. все ссылки из <Menu /> онтосительны <MainLayout />
+	index для пути по-умолчанию, остальные пути относительны path='/'
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<MainLayout />}>
+					<Route index element={<Home />} />
+					<Route path='about' element={<About />} />
+					<Route path='contacts' element={<Contacts />} />
+					<Route path='*' element={<NotFound />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
+
+MainLayout:
+	Меню с навигацией и Outlet с активным дочерним компонентом
+		<>
+			<Menu />
+			<Outlet />
+		</>
+
+Menu:
+	'/' отвечает за абсолютные ссылки, без него - ссылки относительны
+	относительные ссылки не сломаются при изменении ссылки их родителя
+	'.' означает, что путь как у родителя
+		<nav>
+			<Link to='.'>Home</Link>
+			<Link to='about'>About</Link>
+			<Link to='contacts'>Contacts</Link>
+		</nav>
 
 ? Прередача данных =================// 
 https://it-dev-journal.ru/articles/kak-peredavat-dannye-mezhdu-komponentami-v-react-js
@@ -245,15 +284,19 @@ Immediatelly invoke function expression IIFI (самовызывающаяся �
 		})()
 	}, [])
 
-? Icons =================//
+## Icons =================//
 Подключить пакет: https://www.npmjs.com/package/react-icons 
 	(npm i react-icons)
 Выбрать иконку: https://react-icons.github.io/react-icons/
 
-? Generator Keys =================//
+## Generator Keys =================//
 https://www.npmjs.com/package/uuid (npm i uuid)
 	import { v4 as uuidv4 } from 'uuid'
 
+	
+## query-string =================//
+Преобразует URL в объект
+	(npm i query-string) 
 
 ? Other =================//
 defaultChecked={true} 				для назначения по-умолчанию для чекбоксов
@@ -402,7 +445,7 @@ const USERS = [
 	6.6 Добавьте в App.js Router который позволит переходить на соответствующие страницы категорий.
 	6.7 Создайте страницу Error404 и роутинг к ней.
 			Заюзать Navlink
-	6.8 Создайте новое приложение unit_03_spa где повторите указанные действия в SPA стиле ( на проверку сдаете 2 приложения).
+	6.8 Создайте новое приложение unit_03_spa где повторите указанные действия в SPA стиле
 	6.9 Создайте в App.js две константы, которые содержат данные главной навигации и навигации в категориях.
 		Передайте эти данные как props в нужные компоненты. Распечатайте ul-li-a на основе данных массивов.
 
@@ -462,6 +505,14 @@ export default function App(props) {
 	}
 Вызывается в компоненте:
 	<FaCheck onClick={() => toggleTodo(todo.id)} />
+
+? Ф-я сортировки массива объектов со значениями строк и чисел ========//
+function sortCourses(courses, key) {
+	const sortedCourses = [...courses]
+	sortedCourses.sort((a, b) => (a[key] > b[key] ? 1 : -1))
+	return sortedCourses
+}
+
 
 
 */
