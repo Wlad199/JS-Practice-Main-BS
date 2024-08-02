@@ -506,13 +506,5 @@ export default function App(props) {
 Вызывается в компоненте:
 	<FaCheck onClick={() => toggleTodo(todo.id)} />
 
-? Ф-я сортировки массива объектов со значениями строк и чисел ========//
-function sortCourses(courses, key) {
-	const sortedCourses = [...courses]
-	sortedCourses.sort((a, b) => (a[key] > b[key] ? 1 : -1))
-	return sortedCourses
-}
-
-
 
 */

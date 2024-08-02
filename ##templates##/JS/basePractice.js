@@ -1,31 +1,28 @@
 /*
-!  ====================================================================================================//
 
-//! try - catch
-//! throw new Error()
-//! Копировать объект
-//! Var области видения, всплытие
-//! Data()
 ! slice splice
 ! Регулярные выражения и экранирование
 ! функции-генераторы (q35)
 ! Symbol
-! Constructor
 ! Получить данные с сайта разными способами и обработать
 ! bind apply
 ! get set
 ! Map Set
 ! every / some
-! Debugger
-! Рекурсия
 ! Промисификация
-! Основы Node.js (Создание сервера, встроенные модули)
-! Webpack/vite
-! Bootstrap/TaiwindCSS
-! Redux / Redux Toolkit
-! Тесты
 ! try - catch ? async await
-(Math.random() * (max - min + 1) + min);
+! eval()
+! switch case
+
+! Рекурсия
+! Замыкагия
+
+! Тесты
+! Bootstrap/TaiwindCSS
+! Debugger
+! Основы Node.js (Создание сервера, встроенные модули)
+
+
 факториал
 числа Фибоначчи
 уникальность элементов массива
@@ -36,15 +33,14 @@
 * ====================================================================================================//
 * ====================================================================================================//
 
-* Numbers String Object Array
 * Classes
 * Promise
 * Fetch
-* DOM
 * try/catch/Error
 * JSON
 * Копирование объекта
 * Date
+* Деструктуризация
 
 
 * ====================================================================================================//
@@ -266,84 +262,80 @@ console.log(currentIso)
 console.log(new Date(currentIso).getTime())
 
 
+* Деструктурирующее присваивание =================//
+1. Деструктуризировать и сделать зациту от undefined (во вложенном тоже)
+	Проигноривать одно из значений
+	Задать значения поумолчанию
+		const numbers = [1, 2, [3, 4], 5, 6, 7]
+
+2. Деструктуризировать и сделать зациту от undefined (Значения поумолчанию) 
+	Переименовать. Задать значения поумолчанию
+	Достать двойку из вложенного массива
+	Достать a и b из вложенного объекта
+		const obj = {a: 1, b: 2,	c: { a: 10, b: 15 }, d: 4, e: 5, n: [1, 2, 3]}
+
+todo Деструктурирующее присваивание =================//
+1.	const [
+			first = 0,
+			second = 0,
+			[deepFirst = 0, deepSecond = 0] = [],
+			fourth = 0,
+			...tail
+		] = numbers || []
+
+2. 	const {
+		a = 0,
+		b: newB = 0,
+		c: { a: secondA = 0 } = {},
+		n: [, deepSecond] = [],
+		...tail
+	} = obj || {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ! ====================================================================================================//
-??????????????????????????????????????????????????????????????????????????????????????????????????????????
+! SOLUTIONS ====================================================================================================//
+! ====================================================================================================//
 
-get/set =================//
+## Мутация массива через forEach =================//
+const numbers = [1, 2, 3, 4, 5]
 
-class User {
-	constructor(name) {
-	}
-	set name(name) {
-		this._name = name.trim().toLowerCase()
-	}
-	get name() {
-		return this._name
-	}
+/Не мутирует 
+numbers.forEach(e => e * 2)
+/Мутирует 
+numbers.forEach((e, i, arr) => arr[i] = e * 2)
+
+
+## Ф-я сортировки массива объектов со значениями строк и чисел ========//
+function sortCourses(courses, key) {
+	const sortedCourses = [...courses]
+	sortedCourses.sort((a, b) => (a[key] > b[key] ? 1 : -1))
+	return sortedCourses
 }
 
-const alex = new User()
-alex.name = '    AlEx'
-
-console.log(alex.name)
-
- =================//
-
-function filter_list(l) {
-return l.filter(Number.isInteger);
-}
-
-function isIsogram(str) {
-return new Set(str.toUpperCase()).size == str.length;
-}
-
-function isIsogram(str) {
-return !/(\w).*\1/i.test(str)
-}
-
-function highAndLow(numbers) {
-numbers = numbers.split(' ').map(Number);
-return Math.max.apply(0, numbers) + ' ' + Math.min.apply(0, numbers);
-}
-
-function XO(str) {
-let x = str.match(/x/gi);
-let o = str.match(/o/gi);
-return (x && x.length) === (o && o.length);
-}
-
-var replaceDots = function (str) {
-return str.replace(/\./g, '-');
-}
-
-let cubeOdd = a => {
-var isNumeric = a.every(x => !isNaN(x))
-return isNumeric ? a.filter(n => n % 2).reduce((s, n) => s + (n * n * n), 0) : undefined
-}
-
-const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+## Random function =================//
+(Math.random() * (max - min + 1) + min);
 
 
 
-function minMax(arr) {
-return [Math.min(...arr), Math.max(...arr)];
-}
 
-function distinct(a) {
-return [...new Set(a)];
-}
 
-function distinct(a) {
-return Array.from(new Set(a));
-}
-
-const reverseSeq = n => {
-return Array(n).fill(0).map((e, i) => n - i);
-};
-
-const reverseSeq = length => Array.from({ length }, () => length--)
-
-const feast = (...args) => /^(.).*(.),\1.*\2$/.test(args);
 
 
 

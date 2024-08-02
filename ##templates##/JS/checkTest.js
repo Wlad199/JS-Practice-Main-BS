@@ -208,5 +208,90 @@ Tom
 
 
 
+! ====================================================================================================//
+??????????????????????????????????????????????????????????????????????????????????????????????????????????
+
+get/set =================//
+
+class User {
+	constructor(name) {
+	}
+	set name(name) {
+		this._name = name.trim().toLowerCase()
+	}
+	get name() {
+		return this._name
+	}
+}
+
+const alex = new User()
+alex.name = '    AlEx'
+
+console.log(alex.name)
+
+ =================//
+
+function filter_list(l) {
+return l.filter(Number.isInteger);
+}
+
+function isIsogram(str) {
+return new Set(str.toUpperCase()).size == str.length;
+}
+
+function isIsogram(str) {
+return !/(\w).*\1/i.test(str)
+}
+
+function highAndLow(numbers) {
+numbers = numbers.split(' ').map(Number);
+return Math.max.apply(0, numbers) + ' ' + Math.min.apply(0, numbers);
+}
+
+function XO(str) {
+let x = str.match(/x/gi);
+let o = str.match(/o/gi);
+return (x && x.length) === (o && o.length);
+}
+
+var replaceDots = function (str) {
+return str.replace(/\./g, '-');
+}
+
+let cubeOdd = a => {
+var isNumeric = a.every(x => !isNaN(x))
+return isNumeric ? a.filter(n => n % 2).reduce((s, n) => s + (n * n * n), 0) : undefined
+}
+
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+
+
+function minMax(arr) {
+return [Math.min(...arr), Math.max(...arr)];
+}
+
+function distinct(a) {
+return [...new Set(a)];
+}
+
+function distinct(a) {
+return Array.from(new Set(a));
+}
+
+const reverseSeq = n => {
+return Array(n).fill(0).map((e, i) => n - i);
+};
+
+const reverseSeq = length => Array.from({ length }, () => length--)
+
+const feast = (...args) => /^(.).*(.),\1.*\2$/.test(args);
+
+
+
+
+
+
+
 
 */

@@ -17,11 +17,11 @@
 !	ф-ии генераторы
 ! RESTful API
 ! Тестирование и отладка Jest
-
+! цепочка прототипов, прототипное наследование
 
 
 ! ====================================================================================================//
-Вопросы по JS:
+Вопросы по JS: ( 15 )
 	https://my-js.org/docs/other/js-questions
 	https://www.frontendinterviewhandbook.com/ru/javascript-questions/
 	https://roadmap.sh/questions/javascript
@@ -32,8 +32,9 @@
 
 
 * ====================================================================================================//
-* API			https://habr.com/ru/articles/464261/#api
-
+* API																				https://habr.com/ru/articles/464261/#api 
+* Функции первого класса / высшего порядка	https://habr.com/ru/companies/ruvds/articles/428570/
+* Чистые функции														https://habr.com/ru/articles/437512/
 
 
 
