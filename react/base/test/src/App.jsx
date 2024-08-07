@@ -1,23 +1,50 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import MainLayout from "./layouts/MainLayout"
-import About from "./components/About"
-import Contacts from "./components/Contacts"
-import Home from "./components/Home"
-import NotFound from "./components/NotFound"
+import { useState } from "react"
+import Button from "./components/Button"
+import Input from "./components/Input"
+import ShowValue from "./components/ShowValue"
 
 
-export default function App() {
+
+export default function App({ users }) {
+
+	const generateKeys = (obj) => {
+		return `${obj.name}_${obj.age}`
+	}
+
+
+	const [inputValue, setInputValue] = useState('')
+	const [divValue, setDivValue] = useState([])
+
+	const inputHandler = (e) => {
+		setInputValue(e.target.value)
+	}
+
+
+	const clickHandler = () => {
+		setInputValue('')
+		if (inputValue) {
+			setDivValue([...divValue, inputValue])
+		}
+	}
+
+	const formHandler = (e) => {
+		e.preventDefault()
+	}
 
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path='/' element={<MainLayout />}>
-					<Route path='Home' element={<Home />} />
-					<Route path='about' element={<About />} />
-					<Route path='contacts' element={<Contacts />} />
-					<Route path='*' element={<NotFound />} />
-				</Route>
-			</Routes>
-		</BrowserRouter>
+		<>
+			<ul>
+				{users.map(user => {
+					return <li key={generateKeys(user)}>{user.name}</li>
+				})}
+			</ul>
+			<form typeof="submit" onSubmit={formHandler}>
+				<Input inputHandler={inputHandler} inputValue={inputValue} />
+				<Button clickHandler={clickHandler} />
+				<ShowValue divValue={divValue} />
+			</form>
+		</>
 	)
 }
+
+

@@ -1,25 +1,20 @@
 /*
 
 ! slice splice
-! Регулярные выражения и экранирование
-! функции-генераторы (q35)
-! Symbol
-! Получить данные с сайта разными способами и обработать
-! bind apply
+! bind apply call
 ! get set
-! Map Set
-! every / some
-! Промисификация
+! axios
 ! try - catch ? async await
-! eval()
-! switch case
 
 ! Рекурсия
-! Замыкагия
+! Замыкания
 
+! Получить данные с сайта разными способами и обработать
+! функции-генераторы (q35)
 ! Тесты
 ! Bootstrap/TaiwindCSS
 ! Debugger
+! Регулярные выражения и экранирование
 ! Основы Node.js (Создание сервера, встроенные модули)
 
 
@@ -30,22 +25,27 @@
 сортировки (mergeSort, insertionSort, bubbleSort, quickSort)
 деревья (обход в глубину / обход в ширину / нахождение кратчайшего пути между узлами)
 
+
 * ====================================================================================================//
 * ====================================================================================================//
 
-* Classes
-* Promise
-* Fetch
-* try/catch/Error
-* JSON
-* Копирование объекта
-* Date
-* Деструктуризация
+* Classes														.
+* Promise														.
+* Fetch															.
+* async await												.
+* try/catch/Error										.
+* JSON															.
+* Копирование объекта								.
+* Date															.
+* Деструктуризация									.
+* Map Set														.
+* localStorage											.
+* switch case												.
 
 
 * ====================================================================================================//
 ! ====================================================================================================//
-* Class=====================//
+* Class==============================================================//
 1. Создать класс, добавить конструктор (name, pass)
 2. Добавить метод checkPass
 3. Расширить класс и добавить методов
@@ -54,51 +54,86 @@
 6. Проверить является ли свойство собственным или унаследованным
 7. Проверить цепочку прототипов
 
-* Promise =================//
+* Promise ===========================================================//
 1. Создать 2 промиса успешный и неуспешный
 2. Добавить методы then & catch для вывода результата
 	Сделать это через then(func1, func2) и через catch
 3. Добавить метод finally с сообщением о завершении промиса
+4. Создать два промиса и вывести в консоль через Promise.all
+	('https://jsonplaceholder.typicode.com/posts')
+	('https://jsonplaceholder.typicode.com/todos')
+	Проделать это также через ф-ии
 
-* fetch (https://jsonplaceholder.typicode.com/) ======//
-1. Сделать fetch запрос на https://jsonplaceholder.typicode.com/todos
-2. вывести в консоль статус и url
-3. Преобразоапть данные из json
-	Добавить методы then & catch для вывода результата
-
-4. Переписать на async await
-5. Отловить ошибки с помощью try catch
-	Вывести в консоль ошибку и текст ошибки через err.message
-
-todo ====================================================================================================//
-
-? Promise =================//
-/// Создаем промис
+todo Promise 
+Создаем промис
 let promiseOne = new Promise((resolve, reject) => {
 	resolve('SUCCSESS!!!')
 	reject('ERROR!!!')
 })
 
-/// Обрабатываем через then
+	Обрабатываем через then
 promiseOne.then(
 	value => console.log(value),
 	error => console.log(error)
 )
-/// ИЛИ Обрабатываем через catch
+	ИЛИ Обрабатываем через catch
 promiseOne.catch(
 	err => console.log(err)
 )
-///Обрабатываем finally
+	Обрабатываем finally
 promiseOne.finally(() => console.log('finish'))
 
-? fetch =================//
-/// Через then catch
-fetch('https://jsonplaceholder.typicode.com/todos')
-	.then(response => response.json())
-	.then(json => console.log(json))
-	.catch(err => console.log(err))
+## 4 =================//
 
-/// Через async await
+const a1 = new Promise((resolve, reject) => {
+	fetch('https://jsonplaceholder.typicode.com/posts/1')
+		.then(data => resolve(data.json()))
+		.catch(err => reject(err))
+})
+
+const a2 = new Promise((resolve, reject) => {
+	fetch('https://jsonplaceholder.typicode.com/posts/2')
+		.then(data => resolve(data.json()))
+		.catch(err => reject(err))
+})
+
+const a3 = Promise.all([a1, a2])
+	.then((values) => console.log(values))
+
+* fetch (https://jsonplaceholder.typicode.com/) ====================//
+1. Сделать fetch запрос на https://jsonplaceholder.typicode.com/todos
+2. вывести в консоль статус, ok и url
+3. Сделать проверку на статус 200 или ok
+4. Преобразовать данные из json
+	Добавить методы then & catch для вывода результата
+5. Отправить post на 'https://jsonplaceholder.typicode.com/posts'
+	с объектом: const newPost = {	userId: 10,	id: 101, title: 'This is my first post', body: 'post text'}
+
+
+todo fetch
+fetch('https://jsonplaceholder.typicode.com/todos')
+	.then(response => {
+		if (response.status === 200) {
+			return response.json()
+		} else {
+			console.log(error)
+		}
+	})
+	.then(data => console.log(data))
+	.catch(err => console.warn(err))
+
+##4
+fetch('https://jsonplaceholder.typicode.com/posts', {
+	method: 'POST',
+	body: JSON.stringify(newPost)
+})
+
+* async await===================================================//
+1. Переписать fetch на async await
+2. Отловить ошибки с помощью try catch
+	Вывести в консоль ошибку и текст ошибки через err.message
+
+todo async await
 async function fetchTodos(url) {
 	try {
 		const response = await fetch(url)
@@ -111,15 +146,14 @@ async function fetchTodos(url) {
 
 fetchTodos('https://jsonplaceholder.typicode.com/todos')
 
-* try/catch/Error  ==============//
+* try/catch/Error  =============================================//
 
 Написать try catch
 	В блоке try пробросить ошибку, 
 	В catch обработать ее (вывести сообщение ошибки, ее имя и строку с ошибкой)
 	В блоке finally вывести любое сообщение
 
-todo answer try/catch/Error  =================//
-
+todo try/catch/Error
 try {
 	throw new Error('errrroooorrr!!!!')
 } catch (err) {
@@ -130,7 +164,7 @@ try {
 	console.log('this is finally')
 }
 
-* JSON =================//
+* JSON =====================================================//
 
 Распарсить let json = '{ "age": 30 }'
 	Проверить наличие свойства name
@@ -138,9 +172,7 @@ try {
 	В catch отловить только SyntaxError и вывести сообщение из ошибки
 	Остальные ошибки пробросить дальше
 
-
-todo answer  =================//
-
+todo JSON
 let json = '{ "age": 30 }'
 try {
 	let user = JSON.parse(json)
@@ -155,7 +187,7 @@ try {
 	}
 }
 
-* Копирование объекта ====================================================================================================//
+* Копирование объекта ==========================================//
 
 1. Создать объект и скопировать его по ссылке
 Создать объект с вложенным объектом и скопировать его
@@ -165,8 +197,7 @@ try {
 Не мутировать исходный объект!!!
 Вернуть новый объект
 
-todo ================================
-
+todo Копирование объекта
 Изменения внутри объекта будут видны всем у кого есть ссылка на этот объект.
 	Прямое изменение данных объекта называется мутирование.
 	Лучше стараться избегать мутации объекта, т.к это может приводить к неочевидным ошибкам
@@ -177,8 +208,7 @@ todo ================================
 	3. const person2 = JSON.parse(JSON.stringify(person))
 	4. const person2 = structuredClone(person)
 
-!  ============================================================================================//
-* Date ========================================================================================//
+* Date ===========================================================//
  https://learn.javascript.ru/date#sozdanie
 
 6 Февраля 2002 15.30
@@ -217,7 +247,7 @@ ISO = 2017-01-26T15:30
 6. Задачи из учебника: https://learn.javascript.ru/date
 
 
-todo answers  ================================================================================//
+todo Date 
 ? 1 =================//
 const currentTime = new Date()
 console.log(currentTime)
@@ -262,7 +292,7 @@ console.log(currentIso)
 console.log(new Date(currentIso).getTime())
 
 
-* Деструктурирующее присваивание =================//
+* Деструктурирующее присваивание ======================================//
 1. Деструктуризировать и сделать зациту от undefined (во вложенном тоже)
 	Проигноривать одно из значений
 	Задать значения поумолчанию
@@ -274,7 +304,7 @@ console.log(new Date(currentIso).getTime())
 	Достать a и b из вложенного объекта
 		const obj = {a: 1, b: 2,	c: { a: 10, b: 15 }, d: 4, e: 5, n: [1, 2, 3]}
 
-todo Деструктурирующее присваивание =================//
+todo Деструктурирующее присваивание
 1.	const [
 			first = 0,
 			second = 0,
@@ -292,17 +322,104 @@ todo Деструктурирующее присваивание ===============
 	} = obj || {}
 
 
+* Set/Map  =======================================================//
+##Создать Set. Создать Set с елементами внутри. 
+Добавить эл. Удалить один эл. Проверить наличие эл.
+Получить длину. Очистить Set. Перебрать.
+Преобразовать с помощью Set: arr = [1,2,2,1,3,4,4, 'hello', 5, 4]
+Преобразовать Set в обычный массив
 
+##Создать Map. Создать Map с елементами внутри. 
+Добавить эл-ты с ключами: строки, числа, былевы, объект
+Добавить эл-ты через цепочку
+Удалить один эл. Проверить наличие эл.
+Получить длину. Очистить Map. 
+Перебрать через keys, values, entries, for of, forEach.
+Преобразовать объект с помощью Map: const obj = { name: 'Alex', age: 30 }
+Преобразовать Map в обычный объект
 
+todo Set 
+const mySet = new Set()
+mySet.add(1)
+mySet.delete(2)
+console.log(mySet.has(1))
+console.log(mySet.size)
+mySet.clear()
+for (const item of mySet) {
+	console.log(item)
+}
 
+arr = [1, 2, 2, 1, 3, 4, 4, 'hello', 5, 4]
+const mySet2 = new Set(arr)
+const myArr = Array.from(mySet2) / const myArr = [...mySet2]
 
+todo Map
+const myMap = new Map([[55, 'fff'], [66, 'sss']])
+myMap.set("1", "str1")
+	.set(1, "str2")
+	.set(true, "str3")
+console.log(myMap.get(true))
+console.log(myMap.size)
+myMap.delete(true)
 
+const user = { name: 'Alex' }
+myMap.set(user, 55)
 
+console.log(myMap.keys())
+console.log(myMap.values())
+console.log(myMap.entries())
+for (const item of myMap) {
+	console.log(item[1])
+}
+myMap.forEach(item => {
+	console.log(item)
+})
 
+Преобразовать объект с помощью Map
+const obj = { name: 'Alex', age: 30 }
+const myMap2 = new Map(Object.entries(obj)) 
 
+Преобразовать Map в обычный объект
+const myObj = Object.fromEntries(myMap2)
 
+* localStorage =========================================//
+Записать в localStorage новые данные
+Получить данные по ключу key.
+Удалить данные с ключом key.
+Удалить всё.
+Получить ключ на заданной позиции.
+Получить количество элементов в хранилище.
+Перебрать localStorage, вывести ключи и значения
 
+todo localStorage
+localStorage.setItem('keyOne', 1)
+localStorage.getItem('keyOne')
+localStorage.removeItem('keyOne')
+localStorage.clear()
+const a = localStorage.key(0)
+console.log(localStorage.length)
 
+let keys = Object.keys(localStorage)
+for (let key in keys) {
+	console.log(keys[key], key)
+}
+
+* switch case =========================================//
+Написать switch case 
+a = 4. проверить на 3,4,5
+Сделать без break
+
+todo switch case
+const a = 4
+switch (a) {
+	case 3:
+		console.log('low')
+		break
+	case 4:
+		console.log('exact')
+	case 5:
+		console.log('too much')
+}
 
 
 
@@ -332,15 +449,104 @@ function sortCourses(courses, key) {
 ## Random function =================//
 (Math.random() * (max - min + 1) + min);
 
+## delete
+Оператор delete возвращает логическое значение: true при успешном удалении, иначе - false.
+Однако, переменные, объявленные с помощью ключевых слов, не могут быть удалены с помощью delete.
 
+## Округление в низ
+Math.floor(n)
+(~~n)
 
+## Запуск ф-ии по условию
+if(a === 5){
+	f01()
+} else{
+	f02()
+}
+или
+(a===5 ? f01 : f02)()
 
+? Callbach Hell ======================================================//
+function fetchUserInfo(callback) {
+	setTimeout(() => {
+		const data = { id: 1, name: 'Alex' }
+		callback(data)
+	}, 1000)
+}
 
+function fetchUserGames(id, callback) {
+	setTimeout(() => {
+		const data = ['game1', 'game2']
+		callback(data)
+	}, 1000)
+}
 
+function run() {
+	fetchUserInfo((userInfo) => {
+		console.log(userInfo)
+		fetchUserGames(userInfo.id, (userGames) => {
+			console.log(userGames)
+		})
+	})
+}
 
+run()
 
+## На промисах
+function fetchUserData() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const data = { id: 1, name: 'Alex' }
+			resolve(data)
+		}, 1000)
+	})
+}
 
+function fetchUserGames(id) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			const data = ['game1', 'game2', 'game3']
+			resolve(data)
+		}, 1000)
+	})
+}
 
+function run() {
+	fetchUserData()
+		.then((userData) => {
+			console.log(userData)
+			return fetchUserGames(userData.id)
+		})
+		.then((userGames) => {
+			console.log(userGames)
+		})
+}
+
+run()
+
+## Promise example
+function fetchPosts() {
+	return new Promise((res, rej) => {
+		fetch('https://jsonplaceholder.typicode.com/posts')
+			.then(data => res(data.json()))
+	})
+}
+
+function fetchTodos() {
+	return new Promise((res, rej) => {
+		fetch('https://jsonplaceholder.typicode.com/todos')
+			.then(data => res(data.json()))
+	})
+}
+
+Promise.all([fetchPosts(), fetchTodos()])
+	.then(data => {
+		console.log(data[0])
+		console.log(data[1])
+	})
+	.catch(message => console.log('Error', message))
+
+? ====================================================================================================//
 
 
 
