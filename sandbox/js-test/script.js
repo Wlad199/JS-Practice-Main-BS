@@ -1,7 +1,15 @@
 
-newPost = { userId: 10, id: 101, title: 'This is my first post', body: 'post text' }
 
-fetch('https://jsonplaceholder.typicode.com/posts', {
-	method: 'POST',
-	body: newPost
-})
+
+//function fib(n) {
+//	return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+//}
+
+function fib(n) {
+	if (n <= 1) {
+		return n
+	}
+	return fib(n - 1) + fib(n - 2)
+}
+
+//console.log(fib(77))

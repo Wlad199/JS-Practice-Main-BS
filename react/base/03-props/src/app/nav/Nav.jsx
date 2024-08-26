@@ -6,7 +6,11 @@ class Nav extends React.Component {
 		return (
 			<nav>{
 				<ul>{Object.keys(nav).map((item, index) => {
-					return <li key={index}><a href={nav[item]}>{item}</a></li>
+					return (
+						<li key={index}>
+							<a href={nav[item]}>{item}</a>
+						</li>
+					)
 				})}</ul>
 			}</nav>
 		)

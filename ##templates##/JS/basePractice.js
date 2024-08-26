@@ -5,6 +5,7 @@
 ! get set
 ! axios
 ! try - catch ? async await
+! arguments
 
 ! Рекурсия
 ! Замыкания
@@ -59,10 +60,14 @@
 2. Добавить методы then & catch для вывода результата
 	Сделать это через then(func1, func2) и через catch
 3. Добавить метод finally с сообщением о завершении промиса
-4. Создать два промиса и вывести в консоль через Promise.all
+4. Создать два промиса и вывести в консоль через Promise.all (allSettled, race, any)
 	('https://jsonplaceholder.typicode.com/posts')
 	('https://jsonplaceholder.typicode.com/todos')
 	Проделать это также через ф-ии
+5. Создать ф-ю, showUser('https://jsonplaceholder.typicode.com/users/')
+	Принимает через промпт id от 1 до 10
+	Выводит имя пользователя через алерт
+	Сделать проверку на 404 вывести 'User is not found! 404'
 
 todo Promise 
 Создаем промис
@@ -84,21 +89,39 @@ promiseOne.catch(
 promiseOne.finally(() => console.log('finish'))
 
 ## 4 =================//
-
 const a1 = new Promise((resolve, reject) => {
 	fetch('https://jsonplaceholder.typicode.com/posts/1')
-		.then(data => resolve(data.json()))
-		.catch(err => reject(err))
+	.then(data => resolve(data.json()))
+	.catch(err => reject(err))
 })
 
 const a2 = new Promise((resolve, reject) => {
 	fetch('https://jsonplaceholder.typicode.com/posts/2')
-		.then(data => resolve(data.json()))
-		.catch(err => reject(err))
+	.then(data => resolve(data.json()))
+	.catch(err => reject(err))
 })
 
 const a3 = Promise.all([a1, a2])
-	.then((values) => console.log(values))
+.then((values) => console.log(values))
+
+## 5 =================//
+function showUser(url) {
+	let userName = prompt('Give us user`s ID from 0 to 10', 1)
+	return new Promise((resolve, reject) => {
+		fetch(`${url}${userName}`)
+			.then(response => {
+				if (response.status === 404) {
+					throw new Error('User is not found! ' + response.status)
+				} else {
+					resolve(response.json())
+				}
+			})
+			.catch(error => reject(error))
+	})
+}
+showUser('https://jsonplaceholder.typicode.com/users/')
+	.then(data => alert(data.name))
+	.catch(error => alert(error))
 
 * fetch (https://jsonplaceholder.typicode.com/) ====================//
 1. Сделать fetch запрос на https://jsonplaceholder.typicode.com/todos
@@ -108,7 +131,6 @@ const a3 = Promise.all([a1, a2])
 	Добавить методы then & catch для вывода результата
 5. Отправить post на 'https://jsonplaceholder.typicode.com/posts'
 	с объектом: const newPost = {	userId: 10,	id: 101, title: 'This is my first post', body: 'post text'}
-
 
 todo fetch
 fetch('https://jsonplaceholder.typicode.com/todos')
@@ -132,6 +154,7 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 1. Переписать fetch на async await
 2. Отловить ошибки с помощью try catch
 	Вывести в консоль ошибку и текст ошибки через err.message
+2. Переписать #5 из promise
 
 todo async await
 async function fetchTodos(url) {
@@ -146,9 +169,22 @@ async function fetchTodos(url) {
 
 fetchTodos('https://jsonplaceholder.typicode.com/todos')
 
-* try/catch/Error  =============================================//
+## 5 =================//
+async function showUser(url) {
+	let userName = prompt('Give us user`s ID from 0 to 10', 1)
+	const response = await fetch(`${url}${userName}`)
+	if (response.status === 200) {
+		const data = await response.json()
+		alert(data.name)
+		return data
+	}
+	throw new Error('User is not found! ' + response.status)
+}
+showUser('https://jsonplaceholder.typicode.com/users/')
+	.catch(err => alert(err))
 
-Написать try catch
+* try/catch/Error  =============================================//
+1. Написать try catch
 	В блоке try пробросить ошибку, 
 	В catch обработать ее (вывести сообщение ошибки, ее имя и строку с ошибкой)
 	В блоке finally вывести любое сообщение
@@ -165,7 +201,6 @@ try {
 }
 
 * JSON =====================================================//
-
 Распарсить let json = '{ "age": 30 }'
 	Проверить наличие свойства name
 	В случае отсутствия пробросить синтаксическую ошибку
@@ -188,7 +223,6 @@ try {
 }
 
 * Копирование объекта ==========================================//
-
 1. Создать объект и скопировать его по ссылке
 Создать объект с вложенным объектом и скопировать его
 
@@ -245,7 +279,6 @@ ISO = 2017-01-26T15:30
 5.Записать даты в константы
 
 6. Задачи из учебника: https://learn.javascript.ru/date
-
 
 todo Date 
 ? 1 =================//
@@ -304,6 +337,13 @@ console.log(new Date(currentIso).getTime())
 	Достать a и b из вложенного объекта
 		const obj = {a: 1, b: 2,	c: { a: 10, b: 15 }, d: 4, e: 5, n: [1, 2, 3]}
 
+3. Деструктуризировать строку: 'This is some of string'
+	Записать в объект user{}
+
+4. Обменять значения
+	let guest = "Jane";
+	let admin = "Pete";
+
 todo Деструктурирующее присваивание
 1.	const [
 			first = 0,
@@ -321,6 +361,12 @@ todo Деструктурирующее присваивание
 		...tail
 	} = obj || {}
 
+3.	const [one, two, three, ...tail] = string.split(' ')
+		const string = 'This is some of string'
+		let user = {};
+		[user.name, user.surName, ...tail] = string.split(' ')
+
+4. [guest, admin] = [admin, guest]
 
 * Set/Map  =======================================================//
 ##Создать Set. Создать Set с елементами внутри. 

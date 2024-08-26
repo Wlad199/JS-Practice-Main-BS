@@ -1,0 +1,13 @@
+.list li {
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
+	font-size: 20px;
+	span {
+		min-width: 250px;
+	}
+	img {
+		max-width: 30px;
+		max-height: 30px;
+	}
+}
