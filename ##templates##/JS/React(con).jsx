@@ -4,6 +4,8 @@ React DOM (https://unpkg.com/react-dom@18/umd/react-dom.development.js)
 Babel (https://unpkg.com/babel-standalone@6/babel.min.js)
 
 Тестовые массивы (https://jsonplaceholder.typicode.com/)
+Массив пользователей (https://reqres.in/api/users)
+Массив коктелей (https://www.thecocktaildb.com/api.php)
 
 npm commands
 	npm init 															создать package.json
@@ -31,7 +33,6 @@ npm commands
 	С установить в devDependencies npm i hello-world-npm -D (или: --save-dev)
 	Установить глобально: -g (лучше через npx)
  Удалить: npm un ... or uni (uninstall)
-
 
 
 Внутри jsx можно использ. только map или reduce (filter только с последующей конвертацией в react)
@@ -149,7 +150,7 @@ React будет вызывать componentDidMount, когда ваш комп�
 	Можно передать в массив стейт, тогда useEffect будет срабатывать только при изненении этого стейта React.useEffect(() => {}, [count])
 
  ============
-	componentDidUpdate() следить за любыми обговлениями
+	componentDidUpdate() следить за любыми обновлениями
 		React.useEffect(() => {
 			console.log('component was update')
 		})
@@ -257,7 +258,6 @@ https://it-dev-journal.ru/articles/kak-peredavat-dannye-mezhdu-komponentami-v-re
 		а компонент-предок передает их в другой компонент через проп.
 	Через несколько уровней вверх/вниз - prop drilling или Context API или state management библиотеки, такие как Redux, MobX, Recoil и т.д.
 
-	
 ? UseEffect 
 ф-я, которую передают в UseEffect должена возвращать либо undefinded
 	либо другую ф-ю, которая будет выполнена при unmount
@@ -283,42 +283,38 @@ Immediatelly invoke function expression IIFI (самовызывающаяся �
 		})()
 	}, [])
 
-## Icons =================//
-Подключить пакет: https://www.npmjs.com/package/react-icons 
-	(npm i react-icons)
-Выбрать иконку: https://react-icons.github.io/react-icons/
-
-## Generator Keys =================//
-https://www.npmjs.com/package/uuid (npm i uuid)
-	import { v4 as uuidv4 } from 'uuid'
-
-	
-## query-string =================//
-Преобразует URL в объект
-	(npm i query-string) 
-
 ? Other =================//
 defaultChecked={true} 				для назначения по-умолчанию для чекбоксов
 checked={this.state.checkbox} для управления через стейты
 <input defaultValue='someText' /> назначить input значение по умолчанию
 
-Когда ветвь else не нужна, можно также использовать более короткий логический синтаксис &&:
+##Когда ветвь else не нужна, можно также использовать более короткий логический синтаксис &&:
 	<div>{isLoggedIn && <AdminPanel />}</div>
 {condition && action} если условие правдиво - выполнится действие
 
 <button onClick={() => f1('myArg')}>Click me!</button> Передать ф-ю с параметрами
 
-Не стрелочные ф-ии нужно забиндить в конструктор
+## Не стрелочные ф-ии нужно забиндить в конструктор
 	constructor(props) {
 		this.handler = this.handler.bind(this)
 	}
 
-Прокрутить к блоку
+## Прокрутить к блоку
 	myRef.current.scrollIntoView()
 
 Ф-ю назвать deleteTodoHandler, а в пропсах deleteTodo
 Это хорошая практика
 
+## Перезагрузить страницу
+onClick={() => window.location.reload(false)}
+
+## Изменение стейта через колбэк ф-ю 
+const [count, setCount] = useState(10)
+const onClickHandler = () => {
+	setInterval(() => {
+		setCount(prev => prev + 1)
+	}, 1000)
+}
 
 ? questions  =================//
 OOP
@@ -329,6 +325,23 @@ Expression & jsx
 Forms
 Git(Залить, скачать, обновиться, перезаписать, свести)
 
+! NPM package ===================================================
+
+## Фэйковая загрузка (заглушка, скелетон)
+react-content-loader
+
+## Icons =================//
+Подключить пакет: https://www.npmjs.com/package/react-icons 
+	(npm i react-icons)
+Выбрать иконку: https://react-icons.github.io/react-icons/
+
+## Generator Keys =================//
+https://www.npmjs.com/package/uuid (npm i uuid)
+	import { v4 as uuidv4 } from 'uuid'
+
+## query-string =================//
+Преобразует URL в объект
+	(npm i query-string) 
 
 ! Tasks ===================================================
 
@@ -452,7 +465,6 @@ const USERS = [
 	Добавить надпись Loading... при загрузке
 
 ? 8. Получение данных с API и вывод
-
 	Получить данные с ('https://thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink')
 	Вывести надпись LOADING...
 	В случае ошибки вывести её
