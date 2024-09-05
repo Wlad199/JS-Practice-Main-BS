@@ -34,8 +34,8 @@
 ! Git
 
 ! ====================================================================================================//
-Вопросы по JS: ( 115 )
-	6	11	14	20	37	45	48	55	56	65	70	79	92	98	104	114	
+Вопросы по JS: ( 160 )
+	6	11	14	20	37	45	48	55	56	65	70	79	92	98	104	114	129	130	132	143	
 	https://my-js.org/docs/other/js-questions
 	https://www.frontendinterviewhandbook.com/ru/javascript-questions/
 	https://roadmap.sh/questions/javascript

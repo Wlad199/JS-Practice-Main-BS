@@ -315,6 +315,7 @@ const onClickHandler = () => {
 		setCount(prev => prev + 1)
 	}, 1000)
 }
+## window.confirm('Удалить задачу?')  Работает через window
 
 ? questions  =================//
 OOP
@@ -324,6 +325,11 @@ props & state
 Expression & jsx
 Forms
 Git(Залить, скачать, обновиться, перезаписать, свести)
+
+! Errorr ===================================================
+
+! import classNames from 'classnames' Плагин
+
 
 ! NPM package ===================================================
 
@@ -514,6 +520,25 @@ export default function App(props) {
 	}
 Вызывается в компоненте:
 	<FaCheck onClick={() => toggleTodo(todo.id)} />
+
+? Добавить свойство color в объект
+	const [lists, setLists] = useState(BD.lists.map(item => {
+		item.color = BD.colors.filter(
+			color => color.id === item.colorId
+		)[0].name
+		return item
+	}))
+
+
+
+
+
+
+
+
+
+
+
 
 
 */

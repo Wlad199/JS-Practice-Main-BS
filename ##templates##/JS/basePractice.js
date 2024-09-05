@@ -2,10 +2,8 @@
 
 ! slice splice
 ! bind apply call
-! get set
 ! axios
 ! try - catch ? async await
-! arguments
 
 ! Рекурсия
 ! Замыкания
@@ -42,6 +40,7 @@
 * Map Set														.
 * localStorage											.
 * switch case												.
+* get и set													.
 
 
 * ====================================================================================================//
@@ -467,8 +466,34 @@ switch (a) {
 		console.log('too much')
 }
 
+* get и set =========================================//
+1. В объект const user = {name: 'Alex', surName: 'Smith'}
+		добавить через get и set свойство fullName
+2. Создать объект user с приватным свойством _name
+	Доступ только через get и set.
+	Сделать проверку на длину имени
 
+todo get и set
+1.	const user = {
+			name: 'Alex',
+			surName: 'Smith',
+			get fullName() {
+				return this.fullName = this.name + ' ' + this.surName
+			},
+			set fullName(value) {
+				return [this.name, this.surName] = value.split(' ')
+			}
+		}
 
+2.	const user = {
+			get name() {
+				return this._name
+			},
+
+			set name(value) {
+				value.length > 4 ? this._name = value : alert(`It's too short name`)
+			}
+		}
 
 
 

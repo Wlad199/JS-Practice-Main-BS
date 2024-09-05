@@ -3,10 +3,10 @@ import { useState } from 'react'
 import ColorPopup from './ColorPopup'
 
 
-export default function AddButtonList({ colors }) {
+export default function AddButtonList({ colors, onAddList }) {
 
 	const [visiblePopup, setVisiblePopup] = useState(false)
-	const [selectedColor, setSelectedColor] = useState(colors[0].id)
+	const [selectedColor, setSelectedColor] = useState(null)
 
 	const colorSelectedHandler = (id) => {
 		setSelectedColor(id)
@@ -22,8 +22,10 @@ export default function AddButtonList({ colors }) {
 				<ColorPopup
 					colorSelectedHandler={colorSelectedHandler}
 					selectedColor={selectedColor}
+					setSelectedColor={setSelectedColor}
 					setVisiblePopup={setVisiblePopup}
 					colors={colors}
+					onAddList={onAddList}
 				/>}
 		</div>
 	)

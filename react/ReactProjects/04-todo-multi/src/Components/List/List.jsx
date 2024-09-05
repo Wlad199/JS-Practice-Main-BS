@@ -5,7 +5,7 @@ import closeSvg from '../../assets/img/remove.svg'
 import AddButtonList from './AddButtonList'
 
 
-export default function List({ colors, lists }) {
+export default function List({ colors, lists, onAddList, removeHandler }) {
 
 	const checkColor = (id) => {
 		for (let item of colors) {
@@ -28,11 +28,14 @@ export default function List({ colors, lists }) {
 						<li key={el.id} className='list-sidebar__item'>
 							<span style={{ backgroundColor: `${checkColor(el.colorId)}` }}></span>
 							<span>{el.name}</span>
-							<img src={closeSvg} alt="close window" />
+							<img src={closeSvg} onClick={() => removeHandler(el.id)} alt="close window" />
 						</li>
 					)
 				})}
-				<AddButtonList colors={colors} />
+				<AddButtonList
+					colors={colors}
+					onAddList={onAddList}
+				/>
 			</div>
 		</div >
 	)
