@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import closeSvg from '../../assets/img/close.svg'
+import axios from 'axios'
 
 
 export default function ColorPopup({
@@ -14,6 +15,7 @@ export default function ColorPopup({
 
 	const [currentColor, setCurrentColor] = useState()
 	const [inputValue, setInputValue] = useState('')
+	const [isLoading, setIsLoading] = useState(false)
 
 	// Добавить задачу
 	const addList = () => {
@@ -25,8 +27,15 @@ export default function ColorPopup({
 			alert('Необходимо выбрать цвет')
 			return
 		}
-		onAddList({ id: Math.random(), name: inputValue, colorId: selectedColor, color: currentColor })
-		closePopup()
+		setIsLoading(true)
+		axios.post('http://localhost:3001/lists', {
+			name: inputValue, colorId: selectedColor
+		}).then(({ data }) => {
+			const listObj = { ...data, color: currentColor }
+			onAddList(listObj)
+			closePopup()
+
+		}).finally(() => setIsLoading(false))
 	}
 
 	// Закрыть попап
@@ -61,7 +70,11 @@ export default function ColorPopup({
 					)
 				})}
 			</ul>
-			<button onClick={addList} className='add-list-popup__button'>Добавить</button>
+			<button
+				onClick={addList}
+				className='add-list-popup__button'>
+				{isLoading ? 'Добавление...' : 'Добавить'}
+			</button>
 			<button onClick={closePopup} className='add-list-popup__button-close'>
 				<img src={closeSvg} alt="close" />
 			</button>

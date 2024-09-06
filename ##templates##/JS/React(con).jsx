@@ -317,6 +317,14 @@ const onClickHandler = () => {
 }
 ## window.confirm('Удалить задачу?')  Работает через window
 
+## import/export Из отдельного файла (todo-multy)
+./Components/index.js
+export { default as List } from './List/List'
+export { default as Tasks } from './Tasks/Tasks'
+
+ app.jsx
+import { List, Tasks } from './Components/index.js'
+
 ? questions  =================//
 OOP
 Замыкания
@@ -348,6 +356,17 @@ https://www.npmjs.com/package/uuid (npm i uuid)
 ## query-string =================//
 Преобразует URL в объект
 	(npm i query-string) 
+	
+## json-server
+npm install json-server
+json-server ./src/assets/db.json --port 3001
+"fake-json": "json-server ./src/assets/db.json --port 3001" (package.json)
+(?age=15) фильтровать
+(?_sort=name) сортировать
+(?_limit=2) Установить лимит
+
+## npm i -D concurrently
+Позволяет запускать несколько команд одновременно
 
 ! Tasks ===================================================
 
