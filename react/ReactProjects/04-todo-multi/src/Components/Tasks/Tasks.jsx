@@ -6,7 +6,8 @@ import './tasks.scss'
 
 export default function Tasks({ list }) {
 
-	console.log(list)
+
+
 	return (
 		<>
 			<div className="todo__tasks">

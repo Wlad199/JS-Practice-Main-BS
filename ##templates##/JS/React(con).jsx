@@ -294,6 +294,9 @@ checked={this.state.checkbox} для управления через стейт�
 
 <button onClick={() => f1('myArg')}>Click me!</button> Передать ф-ю с параметрами
 
+## Вызов ф-ии только если она существует
+onclick={clickHandler ? ()=>clickHandler() : null}
+
 ## Не стрелочные ф-ии нужно забиндить в конструктор
 	constructor(props) {
 		this.handler = this.handler.bind(this)
@@ -324,6 +327,27 @@ export { default as Tasks } from './Tasks/Tasks'
 
  app.jsx
 import { List, Tasks } from './Components/index.js'
+
+## Добавление класса active при клике на li
+В useState получаем индекс елемента, на котором был клик (onClick={() => onClickItem(index)})
+Сравниваем его с индексом элемента (className={cn(item, { active: activeItem === index })}). 
+Если совпал - добавляется класс
+
+import cn from 'classnames'
+const [activeItem, setActiveitem] = useState(null)
+
+		<ul>
+			{myObject.map((item, index) => (
+				<li
+					onClick={() => onClickItem(index)}
+					key={index}
+					className={cn(item, { active: activeItem === index })}
+				>
+					{item}
+				</li>
+			))}
+		</ul>
+
 
 ? questions  =================//
 OOP
@@ -357,7 +381,7 @@ https://www.npmjs.com/package/uuid (npm i uuid)
 Преобразует URL в объект
 	(npm i query-string) 
 	
-## json-server
+## json-server (https://my-js.org/docs/cheatsheet/json-server/)
 npm install json-server
 json-server ./src/assets/db.json --port 3001
 "fake-json": "json-server ./src/assets/db.json --port 3001" (package.json)
@@ -367,6 +391,9 @@ json-server ./src/assets/db.json --port 3001
 
 ## npm i -D concurrently
 Позволяет запускать несколько команд одновременно
+
+## classnames
+npm install classnames
 
 ! Tasks ===================================================
 
@@ -493,6 +520,10 @@ const USERS = [
 	Получить данные с ('https://thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink')
 	Вывести надпись LOADING...
 	В случае ошибки вывести её
+
+? Приложение с 2 компонентами: (axios-test)
+	1. Показать список пользователей через json-server
+	2. Добалять пользователей через форму (отправка на сервер и отрисовка)
 
 
 

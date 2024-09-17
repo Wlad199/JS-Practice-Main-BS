@@ -5,7 +5,7 @@ import closeSvg from '../../assets/img/remove.svg'
 import AddButtonList from './AddButtonList'
 
 
-export default function List({ colors, lists, onAddList, removeHandler }) {
+export default function List({ colors, lists, onAddList, removeHandler, onClickItem, activeItem }) {
 
 	const checkColor = (id) => {
 		for (let item of colors) {
@@ -14,6 +14,7 @@ export default function List({ colors, lists, onAddList, removeHandler }) {
 			}
 		}
 	}
+
 
 
 	return (
@@ -25,9 +26,11 @@ export default function List({ colors, lists, onAddList, removeHandler }) {
 				</h3>
 				{lists.map(el => {
 					return (
-						<li key={el.id} className='list-sidebar__item'>
+						<li onClick={onClickItem ? () => onClickItem(el) : ''}
+							key={el.id}
+							className={'list-sidebar__item' `${activeItem.id === el.id ? 'active' : ''}`}>
 							<span style={{ backgroundColor: `${checkColor(el.colorId)}` }}></span>
-							<span>{el.name}</span>
+							<span>{el.name} {el.tasks && el.tasks.length > 0 && ` (${el.tasks.length})`}</span>
 							<img src={closeSvg} onClick={() => removeHandler(el.id)} alt="close window" />
 						</li>
 					)
@@ -40,3 +43,4 @@ export default function List({ colors, lists, onAddList, removeHandler }) {
 		</div >
 	)
 }
+// <li className={`${styles.todo} ${todo.isCompleted ? styles.active : ''}`}>

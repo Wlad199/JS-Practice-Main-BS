@@ -25,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "fake-json": "json-server ./src/assets/db.json --watch --port 3001"
+    "fake-json": "json-server ./src/assets/db.json --port 3001",
+    "dev": "concurrently \"npm run fake-json\" \"npm start\""
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

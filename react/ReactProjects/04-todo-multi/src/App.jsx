@@ -9,6 +9,8 @@ export default function App() {
 
 	// Добавить новое свойство в объект
 	const [lists, setLists] = useState(null)
+	const [activeItem, setActiveItem] = useState([])
+
 
 	// Добавить задачу
 	const onAddList = (obj) => {
@@ -27,11 +29,13 @@ export default function App() {
 	}
 
 	useEffect(() => {
-		axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks')
+		//axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks')
+		axios.get('http://localhost:3001/lists')
 			.then(({ data }) => {
 				setLists(data)
 			})
 	}, [])
+
 
 	return (
 		<div className='todo'>
@@ -40,9 +44,12 @@ export default function App() {
 				lists={lists}
 				onAddList={onAddList}
 				removeHandler={removeHandler}
+				onClickItem={item => {
+					setActiveItem(item)
+				}}
+				activeItem={activeItem}
 			/>}
 			{lists && <Tasks list={lists[0]} />}
-
 		</div>
 	)
 }
