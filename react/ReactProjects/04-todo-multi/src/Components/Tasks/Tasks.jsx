@@ -1,11 +1,31 @@
-import addSvg from '../../assets/img/add.svg'
+import axios from 'axios'
 import editSvg from '../../assets/img/edit.svg'
 import './tasks.scss'
+import AddNewTask from './AddNewTask'
 
 
 
-export default function Tasks({ list }) {
+export default function Tasks({ list, onEditTitle, onAddTask }) {
 
+	// Изменить название списка задач
+	const editTitle = () => {
+		const newTitle = window.prompt('Название списка', list.name)
+		if (newTitle) {
+			onEditTitle(list.id, newTitle)
+			axios.patch('http://localhost:3001/lists/' + list.id, {
+				name: newTitle
+			})
+				.catch(() => alert('Не удалось изменить название списка'))
+		}
+	}
+
+
+	if (!list) {
+		return (
+			<div className="todo__tasks todo__tasks_non">
+				<h2>Задачи отсутствуют</h2>
+			</div>)
+	}
 
 
 	return (
@@ -13,7 +33,9 @@ export default function Tasks({ list }) {
 			<div className="todo__tasks">
 				<div className="tasks__title">
 					<h1>{list.name}</h1>
-					<button><img src={editSvg} alt="edit" /></button>
+					<button>
+						<img src={editSvg} onClick={editTitle} alt="edit" />
+					</button>
 				</div>
 
 				<div className="tasks__list">
@@ -31,14 +53,8 @@ export default function Tasks({ list }) {
 						</div>
 					))}
 				</div>
-
-
-
-				<button className='tasks__button'>
-					<img src={addSvg} alt="add task" />
-					<span>Новая задача</span>
-				</button>
-			</div>
+				<AddNewTask list={list} onAddTask={onAddTask} />
+			</div >
 		</>
 	)
 }

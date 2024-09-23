@@ -1,3 +1,8 @@
+.tasks-list {
+	overflow: auto;
+	margin: 0;
+}
+
 .tasks {
 	&__title {
 		font-family: Montserrat;
@@ -8,6 +13,7 @@
 		margin-bottom: 30px;
 		position: relative;
 		display: flex;
+
 		&:after {
 			content: "";
 			position: absolute;
@@ -17,26 +23,32 @@
 			height: 2px;
 			background-color: #f2f2f2;
 		}
+
 		button {
 			margin-left: 10px;
 			margin-top: 6px;
 			opacity: 0;
 			transition: all 0.3s ease 0s;
 		}
+
 		&:hover {
 			button {
 				opacity: 0.5;
 			}
 		}
 	}
+
 	&__list {
 		div:not(:last-child) {
 			margin-bottom: 20px;
 		}
+
 		div {
 			user-select: none;
 		}
-		margin-bottom: 30px;
+
+		margin-bottom: 10px;
+
 		label {
 			display: flex;
 			align-items: center;
@@ -46,38 +58,48 @@
 			border-radius: 50%;
 			outline: 2px solid #e8e8e8;
 			cursor: pointer;
+
 			svg {
 				opacity: 0;
 			}
+
 			&:hover {
 				background-color: #e8e8e8;
 				outline: 2px solid #e8e8e8;
+
 				svg {
 					opacity: 1;
+
 					path {
 						stroke: #b2b2b2;
 					}
 				}
 			}
 		}
+
 		input {
 			display: none;
 		}
-		input:checked ~ label {
+
+		input:checked~label {
 			background-color: #4dd599;
 			outline: 2px solid #4dd599;
+
 			svg {
 				opacity: 1;
+
 				path {
 					stroke: #fff;
 				}
 			}
 		}
 	}
+
 	&__item {
 		display: flex;
 		gap: 10px;
 	}
+
 	&__button {
 		display: flex;
 		gap: 8px;
@@ -86,15 +108,82 @@
 		color: #868686;
 		transition: all 0.2s ease 0s;
 		user-select: none;
+
 		img {
 			opacity: 0.5;
 			padding-bottom: 2px;
 			transition: all 0.2s ease 0s;
 		}
+
 		&:hover {
 			color: #000;
+
 			img {
 				opacity: 1;
+			}
+		}
+	}
+}
+
+//* task-form  ====================================================================================================//
+
+.task-form {
+	&__new {}
+
+	&__add-form {}
+}
+
+.tasks {
+	&__button {}
+}
+
+.add-form {
+	&__input {
+		outline: 1px solid #868686;
+		padding: 0 10px;
+		border-radius: 5px;
+		width: 100%;
+		height: 40px;
+		margin-bottom: 13px;
+
+		&::placeholder {
+			color: #b0b0b0;
+		}
+
+		&:focus {
+			outline: 1px solid #4dd599;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 10px;
+		font-size: 16px;
+	}
+
+	&__button {
+		min-width: 160px;
+		height: 37px;
+		padding: 0 15px;
+		background-color: #4dd599;
+		border-radius: 5px;
+		color: #fff;
+		font-weight: 500;
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			background-color: #2dbd7c;
+		}
+
+		&_disabled {
+			background-color: #F4F6F8;
+			color: #9C9C9C;
+
+			&:hover {
+				background-color: #e33c2f;
+				color: #fff;
 			}
 		}
 	}

@@ -29,7 +29,7 @@ export default function ColorPopup({
 		}
 		setIsLoading(true)
 		axios.post('http://localhost:3001/lists', {
-			name: inputValue, colorId: selectedColor
+			name: inputValue, colorId: selectedColor, tasks: []
 		}).then(({ data }) => {
 			const listObj = { ...data, color: currentColor }
 			onAddList(listObj)

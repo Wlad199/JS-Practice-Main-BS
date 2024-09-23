@@ -336,17 +336,20 @@ import { List, Tasks } from './Components/index.js'
 import cn from 'classnames'
 const [activeItem, setActiveitem] = useState(null)
 
-		<ul>
-			{myObject.map((item, index) => (
-				<li
-					onClick={() => onClickItem(index)}
-					key={index}
-					className={cn(item, { active: activeItem === index })}
-				>
-					{item}
-				</li>
-			))}
-		</ul>
+	<ul>
+		{myObject.map((item, index) => (
+			<li
+				onClick={() => onClickItem(index)}
+				key={index}
+				className={cn(item, { active: activeItem === index })}
+			>
+				{item}
+			</li>
+		))}
+	</ul>
+
+## Cделать кнопку неактивной
+<button disabled={true}</button>
 
 
 ? questions  =================//

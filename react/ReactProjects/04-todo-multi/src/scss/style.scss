@@ -1,6 +1,6 @@
 #root {
 	display: flex;
-	align-items: center;
+	//align-items: center;
 	justify-content: center;
 	height: 100vh;
 	background-color: #e5e5e5;
@@ -9,19 +9,31 @@
 .todo {
 	display: flex;
 	width: 750px;
+	margin: 50px 0;
 	//min-height: calc(100vh - 50px);
 	border-radius: 10px;
 	overflow: hidden;
+
 	&__sidebar {
 		background-color: #f4f6f8;
 		border-right: 2px solid #f1f1f1;
 		max-width: 200px;
 	}
+
 	&__tasks {
 		background-color: #fff;
-		padding: 50px;
+		padding: 30px;
 		font-family: lato;
 		flex: 1 1 auto;
+
+		&_non {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 32px;
+			font-family: Montserrat;
+			color: #C9D1D3;
+		}
 	}
 }
 

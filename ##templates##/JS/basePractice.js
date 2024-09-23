@@ -2,7 +2,6 @@
 
 ! slice splice
 ! bind apply call
-! axios
 ! try - catch ? async await
 
 ! Рекурсия
