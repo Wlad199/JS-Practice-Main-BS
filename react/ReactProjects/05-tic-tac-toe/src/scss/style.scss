@@ -1,0 +1,138 @@
+.wrapper {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+}
+
+.tic-tac {
+	width: 300px;
+	height: 300px;
+	display: flex;
+	flex-wrap: wrap;
+
+
+	&__cell {
+		flex: 0 0 33.333%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid gray;
+		height: 100px;
+		width: 100px;
+		cursor: pointer;
+		border: 2px solid black;
+		position: relative;
+
+		&:nth-child(1),
+		&:nth-child(2),
+		&:nth-child(3) {
+			border-top: none;
+		}
+
+		&:nth-child(7),
+		&:nth-child(8),
+		&:nth-child(9) {
+			border-bottom: none;
+		}
+
+		&:nth-child(3),
+		&:nth-child(6),
+		&:nth-child(9) {
+			border-right: none;
+		}
+
+		&:nth-child(1),
+		&:nth-child(4),
+		&:nth-child(7) {
+			border-left: none;
+		}
+
+		&.x,
+		&.o {
+			cursor: not-allowed;
+		}
+
+		//? x  =================//
+
+		&.x:before {
+			content: '';
+			position: absolute;
+			height: 90px;
+			width: 20px;
+			background-color: black;
+			transform: rotate(45deg);
+		}
+
+		&.x:after {
+			content: '';
+			position: absolute;
+			height: 90px;
+			width: 20px;
+			background-color: black;
+			transform: rotate(-45deg);
+		}
+
+		//? O =================//
+		&.o:before {
+			content: '';
+			position: absolute;
+			height: 90px;
+			width: 90px;
+			border-radius: 50%;
+			background-color: black;
+		}
+
+		&.o:after {
+			content: '';
+			position: absolute;
+			height: 60px;
+			width: 60px;
+			background-color: #fff;
+			border-radius: 50%;
+		}
+
+	}
+}
+
+//? Hovers =================//
+
+.tic-tac.x .tic-tac__cell:not(.o):not(.x):hover::before {
+	content: '';
+	position: absolute;
+	height: 90px;
+	width: 20px;
+	background-color: lightgray;
+	transform: rotate(45deg);
+}
+
+.tic-tac.x .tic-tac__cell:not(.o):not(.x):hover::after {
+	content: '';
+	position: absolute;
+	height: 90px;
+	width: 20px;
+	background-color: lightgray;
+	transform: rotate(-45deg);
+}
+
+//  =================//
+
+.tic-tac.o .tic-tac__cell:not(.o):not(.x):hover::before {
+	content: '';
+	position: absolute;
+	background-color: lightgray;
+	height: 90px;
+	width: 90px;
+	border-radius: 50%;
+}
+
+.tic-tac.o .tic-tac__cell:not(.o):not(.x):hover::after {
+	content: '';
+	position: absolute;
+	background-color: lightgray;
+	height: 60px;
+	width: 60px;
+	background-color: #fff;
+	border-radius: 50%;
+}

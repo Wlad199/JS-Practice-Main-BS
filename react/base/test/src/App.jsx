@@ -1,17 +1,13 @@
-import axios from 'axios'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { v4 } from 'uuid'
 
+import classNames from 'classnames'
 
-export default function App() {
+export default function App({ }) {
 
-
-
-	axios.get('http://localhost:3001/lists?_expand=color')
-		.then(res => console.log(res.data))
 
 	return (
 		<>
-
 		</>
 	)
 }
