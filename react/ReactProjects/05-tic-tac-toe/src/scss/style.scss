@@ -1,9 +1,11 @@
 .wrapper {
 	height: 100vh;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	user-select: none;
+	background-color: #fafbdb;
 }
 
 .tic-tac {
@@ -89,10 +91,23 @@
 			position: absolute;
 			height: 60px;
 			width: 60px;
-			background-color: #fff;
+			background-color: #fafbdb;
 			border-radius: 50%;
 		}
+	}
 
+	&__restart {
+		margin-top: 50px;
+		background-color: #279847;
+		color: #fff;
+		padding: 10px 15px;
+		border-radius: 5px;
+		opacity: .9;
+		transition: all 0.1s ease 0s;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 }
 
@@ -133,6 +148,54 @@
 	background-color: lightgray;
 	height: 60px;
 	width: 60px;
-	background-color: #fff;
+	background-color: #fafbdb;
 	border-radius: 50%;
+}
+
+//? win =================//
+
+.tic-tac__cell.x.red:before {
+	background-color: red;
+}
+
+.tic-tac__cell.x.red:after {
+	background-color: red;
+}
+
+.tic-tac__cell.o.red:before {
+	background-color: red;
+}
+
+.tic-tac__cell.o.red:after {
+	background-color: red;
+	background-color: #fafbdb;
+}
+
+//? message =================//
+
+.message {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	left: 0;
+	background-color: rgba(#000, .9);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.2s ease 0s;
+
+	&.hidden {
+		transform: scale(0);
+	}
+
+	span {
+		color: #fff;
+		font-size: 36px;
+	}
+
+	button {
+		background-color: #279847;
+	}
 }

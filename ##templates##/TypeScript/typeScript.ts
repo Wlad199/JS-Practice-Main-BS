@@ -345,7 +345,7 @@ function calculateArea(a: number, b: number): Rect
 function calculateArea(a: number, b?: number): Square | Rect {...}
 
 ? работа с dom в TS
-Определенные html-элементы на странице. Содержат специфичные для них свойства и методы в дополнение к общим
+Определенные html-элементы на странице cодержат специфичные для них свойства и методы в дополнение к общим
 Все эти интерфейсы нужны для четкого указания с чем мы работаем и правильного доступа к нужным свойствам/методам
 
 	const p = document.querySelector('.some-class') as HTMLParagraphElement

@@ -1,4 +1,4 @@
-//import classNames from 'classnames'
+import classNames from 'classnames'
 import React, { useState } from 'react'
 
 
@@ -6,6 +6,9 @@ export default function App() {
 
 	const [squares, setSquares] = useState(Array(9).fill(null))
 	const [count, setCount] = useState(0)
+	const [bodyClass, setBodyClass] = useState({ o: false, x: true })
+	const [message, setMessage] = useState(null)
+	const [redLine, setRedLine] = useState([])
 
 	const WINNER_LINE = [
 		[0, 1, 2],
@@ -19,18 +22,19 @@ export default function App() {
 	]
 
 	const isWinner = () => {
-		let s = (count % 2 === 0) ? 'X' : 'O'
+		let s = (count % 2 === 0) ? 'x' : 'o'
 		for (let i = 0; i < WINNER_LINE.length; i++) {
 			let line = WINNER_LINE[i]
 			if (squares[line[0]] === s
 				&& squares[line[1]] === s
 				&& squares[line[2]] === s
 			) {
-				alert(s + ' win')
+				redColor(line)
 				setTimeout(() => {
-					setSquares(Array(9).fill(null))
-					setCount(0)
-				}, 3000);
+					setMessage('Победил ' + s.toUpperCase())
+				}, 800)
+			} else if (!squares.includes(null)) {
+				setMessage('Ничья')
 			}
 		}
 	}
@@ -38,31 +42,52 @@ export default function App() {
 	const clickHandler = (e) => {
 		let data = e.currentTarget.getAttribute('data')
 		let currentSquares = squares
-		if (!squares[data]) {
-			currentSquares[data] = (count % 2 === 0) ? 'X' : 'O'
+		if (!squares[data] && redLine.length === 0) {
+			if (count % 2 === 0) {
+				setBodyClass({ o: true, x: false })
+				currentSquares[data] = 'x'
+			} else {
+				setBodyClass({ o: false, x: true })
+				currentSquares[data] = 'o'
+			}
 			setSquares(currentSquares)
 			setCount(count + 1)
-		} else {
-			alert('NO NO NO!!!')
 		}
 		isWinner()
 	}
-	console.log(squares)
+
+	const restartHandler = () => {
+		setSquares(Array(9).fill(null))
+		setCount(0)
+		setMessage(null)
+		setRedLine([])
+	}
+
+	const redColor = (line) => {
+		setRedLine(line)
+	}
 
 
 	return (
 		<div className="wrapper">
-			<div className='tic-tac o'>
-				<div className="tic-tac__cell x" onClick={clickHandler} data='0'><span>{squares[0]}</span></div>
-				<div className="tic-tac__cell o" onClick={clickHandler} data='1'><span>{squares[1]}</span></div>
-				<div className="tic-tac__cell" onClick={clickHandler} data='2'><span>{squares[2]}</span></div>
-				<div className="tic-tac__cell" onClick={clickHandler} data='3'><span>{squares[3]}</span></div>
-				<div className="tic-tac__cell" onClick={clickHandler} data='4'><span>{squares[4]}</span></div>
-				<div className="tic-tac__cell" onClick={clickHandler} data='5'><span>{squares[5]}</span></div>
-				<div className="tic-tac__cell" onClick={clickHandler} data='6'><span>{squares[6]}</span></div>
-				<div className="tic-tac__cell" onClick={clickHandler} data='7'><span>{squares[7]}</span></div>
-				<div className="tic-tac__cell" onClick={clickHandler} data='8'><span>{squares[8]}</span></div>
+			<div className={classNames('tic-tac', bodyClass)}>
+				<div className={classNames('tic-tac__cell', squares[0], redLine.includes(0) ? 'red' : '')} onClick={clickHandler} data='0'></div>
+				<div className={classNames('tic-tac__cell', squares[1], redLine.includes(1) ? 'red' : '')} onClick={clickHandler} data='1'></div>
+				<div className={classNames('tic-tac__cell', squares[2], redLine.includes(2) ? 'red' : '')} onClick={clickHandler} data='2'></div>
+				<div className={classNames('tic-tac__cell', squares[3], redLine.includes(3) ? 'red' : '')} onClick={clickHandler} data='3'></div>
+				<div className={classNames('tic-tac__cell', squares[4], redLine.includes(4) ? 'red' : '')} onClick={clickHandler} data='4'></div>
+				<div className={classNames('tic-tac__cell', squares[5], redLine.includes(5) ? 'red' : '')} onClick={clickHandler} data='5'></div>
+				<div className={classNames('tic-tac__cell', squares[6], redLine.includes(6) ? 'red' : '')} onClick={clickHandler} data='6'></div>
+				<div className={classNames('tic-tac__cell', squares[7], redLine.includes(7) ? 'red' : '')} onClick={clickHandler} data='7'></div>
+				<div className={classNames('tic-tac__cell', squares[8], redLine.includes(8) ? 'red' : '')} onClick={clickHandler} data='8'></div>
 			</div>
+			<button className='tic-tac__restart' onClick={restartHandler}>Начать сначала</button>
+
+			<div className={classNames('message', message ? '' : 'hidden')}>
+				<span>{message}</span>
+				<button className='tic-tac__restart' onClick={restartHandler}>Начать сначала</button>
+			</div>
+
 		</div>
 	)
 }
