@@ -1,5 +1,5 @@
-//import './scss/null.scss'
-//import './scss/style.scss'
+import './scss/null.scss'
+import './scss/style.scss'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
