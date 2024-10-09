@@ -18,7 +18,56 @@ useSelector()​ позволяет извлекать данные из сос�
 
 
 
+! Base template ====================================================================================================//
+? store =================//
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './counterSlice'
 
+export default configureStore({
+	reducer: {
+		counter: counterReducer
+	}
+})
+
+? clice =================//
+import { createSlice } from '@reduxjs/toolkit'
+
+export const counterSlice = createSlice({
+	name: 'counter',
+	initialState: {
+		value: 0
+	},
+	reducers: {
+		increment: state => { state.value += 1 },
+		decrement: state => { state.value -= 1 }
+	}
+})
+export const { increment, decrement } = counterSlice.actions
+export default counterSlice.reducer
+
+? App =================//
+import { useSelector, useDispatch } from 'react-redux'
+import { increment, decrement } from './store/counterSlice'
+
+export default function App() {
+	const count = useSelector((state) => state.counter.value)
+	const dispatch = useDispatch()
+	return (
+		<>
+			<button onClick={() => dispatch(increment())}>+++</button>
+			<span>{count}</span>
+			<button onClick={() => dispatch(decrement())}>---</button>
+		</>
+	)
+}
+
+? index =================//
+import { Provider } from 'react-redux'
+import store from './store/store'
+	<Provider store={store}>
+		<App />
+	</Provider>
+! ====================================================================================================//
 
 
 
