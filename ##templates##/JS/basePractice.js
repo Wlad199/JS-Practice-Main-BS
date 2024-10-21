@@ -536,6 +536,16 @@ if(a === 5){
 или
 (a===5 ? f01 : f02)()
 
+## Сортировка массива по дате (reverse)
+[
+	{id: '2', date: '2024-10-11T10:47:13.384Z'}
+	{id: '1', date: '2024-10-11T10:42:13.384Z'}
+]
+
+posts.slice().sort((a, b) => b.date.localeCompare(a.date))
+slice создает неглубокую копию массива
+
+
 ? Callbach Hell ======================================================//
 function fetchUserInfo(callback) {
 	setTimeout(() => {

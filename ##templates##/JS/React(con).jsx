@@ -329,6 +329,9 @@ react-content-loader
 https://www.npmjs.com/package/uuid (npm i uuid)
 	import { v4 as uuidv4 } from 'uuid'
 
+В Redux встроен аналог:
+	import { nanoid } from "@reduxjs/toolkit"
+
 ## query-string =================//
 Преобразует URL в объект
 	(npm i query-string) 
@@ -346,6 +349,9 @@ json-server ./src/assets/db.json --port 3001
 
 ## classnames
 npm install classnames
+
+## date-fns для работы с датами
+npm i date-fns
 
 ! Tasks ===================================================
 
