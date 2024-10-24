@@ -73,7 +73,7 @@ import store from './store/store'
 
 ! Async request =======================================================================================//
 
-? store async =================//
+? store (async) =================//
 import { configureStore } from '@reduxjs/toolkit'
 import todoReduser from './Components/todoSlice'
 
@@ -83,7 +83,7 @@ export default configureStore({
 	}
 })
 
-? Slice async =================//
+? Slice (async) =================//
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -119,7 +119,7 @@ const todoSlice = createSlice({
 
 export default todoSlice.reducer
 
-? App async =================//
+? App (async) =================//
 import { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { fetchTodo } from "./Components/todoSlice"
