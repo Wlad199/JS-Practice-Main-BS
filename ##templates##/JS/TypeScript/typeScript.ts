@@ -11,15 +11,26 @@ tsc -help										Список команд
 tsc --init									Инициализировать проект
 tsc index.ts (tsc)					Запустить компилятор
 tsc -w index.ts							Автоматическая перекомпиляция (--watch)
+tsc -w 
 clear												Очистить консоль
 node index.js								Выполнить код из файла в терминале
 ts-node index.ts						Выполнить код
+(//@ts-ignore)							игнорировать предупреждения в следующей строке
 
 
 ? tsconfig.json =================//
 noImplicitAny								Отключить ошибки при типе any
+strictNullChecks						Отключить ошибки при типе undefind
 strictNullChecks						Отключить ошибки при значении null и undefined
 "target": "es2016"					Версия стандарта JS
+strictPropertyInitialization проверка свойств класса, которые еще не созданы
+allowJs											Разрешить писать на JS
+checkJs											Проверка JS
+outDir											Куда класть js файлы
+removeComments							Удалять комменты
+noEmitOnError								Не компилировать при ошибке
+inlineSourceMap							Сохранять пути к ошибкам
+rootDir											Куда компилировать модули
 
 *  ==========================================================================================================//
 
@@ -356,11 +367,70 @@ function calculateArea(a: number, b?: number): Square | Rect {...}
 	TS автоматически подставит нужный тип интерфейса. Утверждение в таком случае не нужно
 Такая же ситуация и при создании новых элементов через команду createElement()
 
+! ====================================================================================================//
+
+const a: (number | string)[] = [1, "lalaka", 3];
+
+
+! ====================================================================================================//
+! Tasks ====================================================================================================//
+! ====================================================================================================//
+	Запрос 
+{
+	"topicId": 5,
+		"status": "published" // "draft", "deleted"
+}
+ Ответ 
+[
+	{
+		"question": "Как осуществляется доставка?",
+		"answer": "быстро!",
+		"tags": [
+			"popular",
+			"new"
+		],
+		"likes": 3,
+		"status": "published"
+	}
+]
+	Ф-я
+async function getFaqs(req) {
+	const res = await fetch('/faqs', {
+		method: 'POST',
+		body: JSON.stringify(req)
+	});
+	const data = await res.json();
+	return data;
+}
+ todo Anwer =================//
+enum QuestionStatus {
+	Published = 'published',
+	Draft = 'draft',
+	Deleted = 'deleted'
+}
+
+async function getFaqs(req: {
+	topicId: number,
+	status?: QuestionStatus
+}): Promise<{
+	question: string,
+	answer: string,
+	tags: string[],
+	likes: number,
+	status: string
+}[]> {
+	const res = await fetch('/faqs', {
+		method: 'POST',
+		body: JSON.stringify(req)
+	});
+	const data = await res.json();
+	return data;
+}
 
 
 
-
-
+! ??? ====================================================================================================//
+Маппинг
 
 
 
