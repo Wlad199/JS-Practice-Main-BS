@@ -331,8 +331,8 @@ console.log(new Date(currentIso).getTime())
 
 2. Деструктуризировать и сделать зациту от undefined (Значения поумолчанию) 
 	Переименовать. Задать значения поумолчанию
-	Достать двойку из вложенного массива
 	Достать a и b из вложенного объекта
+	Достать двойку из вложенного массива
 		const obj = {a: 1, b: 2,	c: { a: 10, b: 15 }, d: 4, e: 5, n: [1, 2, 3]}
 
 3. Деструктуризировать строку: 'This is some of string'
@@ -359,8 +359,9 @@ todo Деструктурирующее присваивание
 		...tail
 	} = obj || {}
 
-3.	const [one, two, three, ...tail] = string.split(' ')
-		const string = 'This is some of string'
+3.	const string = 'This is some of string'
+		const [one, two, three, ...tail] = string.split(' ')
+		
 		let user = {};
 		[user.name, user.surName, ...tail] = string.split(' ')
 
@@ -503,10 +504,10 @@ todo get и set
 ## Мутация массива через forEach =================//
 const numbers = [1, 2, 3, 4, 5]
 
-/Не мутирует 
-numbers.forEach(e => e * 2)
-/Мутирует 
-numbers.forEach((e, i, arr) => arr[i] = e * 2)
+Не мутирует 
+	numbers.forEach(e => e * 2)
+Мутирует 
+	numbers.forEach((e, i, arr) => arr[i] = e * 2)
 
 
 ## Ф-я сортировки массива объектов со значениями строк и чисел ========//

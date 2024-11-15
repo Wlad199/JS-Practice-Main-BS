@@ -3,46 +3,77 @@
 ! Интернет
 ! Доменное имя, DNS, хостинг
 ! Протокол, http, https, ssl/tls
-
-
-! Import / Export / require()
-! Symbol 
-! Мемоизация в JS
-! каррирование (currying)
-! Proxy
-! Object.freeze()
-! [Symbol.iterator] yield*
-! cookies
-! fromEntries
-! REST API
+!	Методы HTTP запросов (заголовки и тд)
 
 ! Промисификация
 ! DOM async / defer
 ! Асинхронность: Сетевые запросы, Клиент-сервер
 ! Заголовки запросов
 
-! Операторы короткого замыкания
+
+! Import / Export / require()
+! Symbol 
+! Мемоизация в JS
+! Proxy
+! Object.freeze()
+! fromEntries
+! Scope
+! This
+!	меморизация
+!	Методы массивов
+!	Контекст преобразования JS
+!	Css Фигуры
+!	Регулярные выражения
+
 ! цепочка прототипов, прототипное наследование
+!	ООП Приватные поля
+!	ООП паттерны
 
 ! solid
 ! Тестирование и отладка Jest дебаггинг
 ! RESTful API
 !	ф-ии генераторы
+! [Symbol.iterator] yield*
+!	Функциональные паттерны
 
+!	Jira
 ! ESLint
 ! WebPack
 ! Git
+!	Material UI
 
 ! ====================================================================================================//
-Вопросы по JS: ( 170 )
-	6	11	14	20	37	45	48	55	56	65	70	79	92	98	104	114	129	130	132	143
-	164	182	
-	https://my-js.org/docs/other/js-questions
-	https://www.frontendinterviewhandbook.com/ru/javascript-questions/
-	https://roadmap.sh/questions/javascript
+* ====================================================================================================//
+* API																						https://habr.com/ru/articles/464261/#api 
+* Rest API Soap GraphQL Websockets RPC					https://www.youtube.com/watch?v=XaTwnKLQi4A
+*	Особенности ES6																https://frontend-stuff.com/blog/es6/ | https://artzolin.ru/javascript-theory/javascript-es6-features/
+* Императивный и Декларативный стили						https://doka.guide/tools/programming-paradigms/
+* Функции первого класса / высшего порядка			https://habr.com/ru/companies/ruvds/articles/428570/
+* Чистые функции																https://habr.com/ru/articles/437512/
+* Операции, выражения и инструкции							https://jsflow.org/docs/operators-expressions-statements/
+*	Временная мертвая зона												https://russianblogs.com/article/34231534838/
+* Var области видения, всплытие									https://learn.javascript.ru/var / https://doka.guide/js/closures/
+* Области видимости let и const									https://jsflow.org/docs/block-scope/ / https://learn.javascript.ru/closure
+*	Замыкания																			https://learn.javascript.ru/closures																									
+* Лексическое окружение													https://jsflow.org/docs/lex-env/
+* Рекурсия																			https://doka.guide/js/recursion/
+* EventLoop																			https://doka.guide/js/async-in-js/ // https://www.youtube.com/watch?v=zDlg64fsQow // http://latentflip.com/loupe/
+* axios																					https://my-js.org/docs/cheatsheet/axios
+* каррирование (currying)												https://thecode.media/currying/
+* Управ памятью, цикл. ссылка, сборщик мусора		https://developer.mozilla.org/ru/docs/Web/JavaScript/Memory_management
+*	Куки																					https://learn.javascript.ru/cookie
+* Преобразования типов в JavaScript							https://habr.com/ru/articles/709048/
+*	.valueOf .toPrimitive													https://learn.javascript.ru/object-conversion	https://learn.javascript.ru/object-toprimitive
+
+Вопросы по JS: ( 150 )
+6	11	14	20	37	45	48	55	56	65	70	79	92	98	104	114 119	129	130	132	143
+164	182	
+https://my-js.org/docs/other/js-questions
+https://www.frontendinterviewhandbook.com/ru/javascript-questions/
+https://roadmap.sh/questions/javascript
 
 Вопросы по React:
-	https://my-js.org/docs/other/react-questions
+https://my-js.org/docs/other/react-questions
 	https://roadmap.sh/questions/react
 
 todo Q&A =================//
@@ -78,7 +109,18 @@ undefined, функции и символы не являются валидны
 	Такие значения не включаются в объект и конвертируются (преобразуются) в null.
 new.target ссылается на конструктор (указывает на класс), который вызывается с помощью ключевого слова new
 
-
+С помощью метода defineProperty мы можем добавлять новые свойства к объекту или изменять существующие.
+	Когда мы добавляем свойство к объекту с помощью defineProperty(),
+	они по умолчанию являются не перечисляемыми (enumerable: false)
+Object.freeze() делает невозможным добавление, удаление или изменение свойств объекта 
+	(если только значение свойства не является другим объектом)
+	 Заморожен ли объект, можно определить посредством Object.isFrozen()
+Сеттеры не имеют собственных значений, их задача - модифицировать свойства объекта. 
+	Поэтому вызов сеттера возвращает undefined.
+Объекты не являются итерируемыми (перебираемыми) по умолчанию. 
+	В итерируемых сущностях имеется протокол итератора. 
+	Мы можем реализовать такой протокол вручную, добавив в объект символ итератора ([Symbol.iterator]), 
+	который будет возвращать объект-генератор. 
 
 Выражение typeof ClassName возвращает function
 	Boolean([]) === true; 
@@ -100,24 +142,5 @@ new.target ссылается на конструктор (указывает н
 Но существует исключение для конструктора Function:
 	var func = new Function(); typeof func; // Вернёт 'function'
 
-
-
-todo =================//
-* ====================================================================================================//
-* API																				https://habr.com/ru/articles/464261/#api 
-* Rest API Soap GraphQL Websockets RPC			https://www.youtube.com/watch?v=XaTwnKLQi4A
-*	Особенности ES6														https://frontend-stuff.com/blog/es6/ | https://artzolin.ru/javascript-theory/javascript-es6-features/
-* Императивный и Декларативный стили				https://doka.guide/tools/programming-paradigms/
-* Функции первого класса / высшего порядка	https://habr.com/ru/companies/ruvds/articles/428570/
-* Чистые функции														https://habr.com/ru/articles/437512/
-* Операции, выражения и инструкции					https://jsflow.org/docs/operators-expressions-statements/
-*	Временная мертвая зона										https://russianblogs.com/article/34231534838/
-* Var области видения, всплытие							https://learn.javascript.ru/var / https://doka.guide/js/closures/
-* Области видимости let и const							https://jsflow.org/docs/block-scope/ / https://learn.javascript.ru/closure
-*	Замыкания																	https://learn.javascript.ru/closures																									
-* Лексическое окружение											https://jsflow.org/docs/lex-env/
-* Рекурсия																	https://doka.guide/js/recursion/
-* EventLoop																	https://doka.guide/js/async-in-js/ // https://www.youtube.com/watch?v=zDlg64fsQow // http://latentflip.com/loupe/
-* axios																			https://my-js.org/docs/cheatsheet/axios
 
 */

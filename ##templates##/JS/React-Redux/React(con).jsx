@@ -593,7 +593,8 @@ const [activeItem, setActiveitem] = useState(null)
 		))}
 	</ul>
 
-
+? Передача объекта в ф-ю колбэк
+onClick={() => dispatch(reactionAdded({ posId: post.id, reaction: name }))}
 
 
 
