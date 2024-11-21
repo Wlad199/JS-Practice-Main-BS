@@ -1,29 +1,14 @@
 /*
-! Браузер и сеть
-! Интернет
-! Доменное имя, DNS, хостинг
-! Протокол, http, https, ssl/tls
-!	Методы HTTP запросов (заголовки и тд)
-
 ! Промисификация
 ! DOM async / defer
 ! Асинхронность: Сетевые запросы, Клиент-сервер
 ! Заголовки запросов
 
-
 ! Import / Export / require()
-! Symbol 
 ! Мемоизация в JS
-! Proxy
-! Object.freeze()
-! fromEntries
-! Scope
-! This
-!	меморизация
-!	Методы массивов
-!	Контекст преобразования JS
 !	Css Фигуры
 !	Регулярные выражения
+!	ф-ии генераторы & [Symbol.iterator] yield*
 
 ! цепочка прототипов, прототипное наследование
 !	ООП Приватные поля
@@ -32,18 +17,29 @@
 ! solid
 ! Тестирование и отладка Jest дебаггинг
 ! RESTful API
-!	ф-ии генераторы
-! [Symbol.iterator] yield*
 !	Функциональные паттерны
-
 !	Jira
 ! ESLint
 ! WebPack
 ! Git
 !	Material UI
+! Тесты
+! Bootstrap/TaiwindCSS
+! Debugger
+! Основы Node.js (Создание сервера, встроенные модули)
+
+react (https://practicum.yandex.ru/react/?utm_source=yandex&utm_medium=cpc&utm_campaign=Yan_Net_RF_Prog_reac_b2c_Gener_Regular_1_460_upskill&utm_content=sty_context%3As_yandex.ru%3Acid_103839286%3Agid_5365194792%3Akw_%3Apid_61579094%3Aaid_15590379430%3Acrid_0%3Arid_61579094%3Ap_0%3Apty_none%3Amty_%3Amkw_%3Adty_desktop%3Acgcid_17978231%3Arn_Ярославль%3Arid_16&utm_term=&yclid=14094681718427746303)
+! WebSocket
+! Деплой
+! Jest
+! Роутинг
+! Рефакторинг
+! Безопасность
+
 
 ! ====================================================================================================//
-* ====================================================================================================//
+* Интернет																			https://www.youtube.com/watch?v=xnx2JDSV87Y
+* Браузер и сеть																https://www.youtube.com/watch?v=g94j-ahVR78	https://www.youtube.com/watch?v=LQb0ocMVAOE
 * API																						https://habr.com/ru/articles/464261/#api 
 * Rest API Soap GraphQL Websockets RPC					https://www.youtube.com/watch?v=XaTwnKLQi4A
 *	Особенности ES6																https://frontend-stuff.com/blog/es6/ | https://artzolin.ru/javascript-theory/javascript-es6-features/
@@ -51,30 +47,39 @@
 * Функции первого класса / высшего порядка			https://habr.com/ru/companies/ruvds/articles/428570/
 * Чистые функции																https://habr.com/ru/articles/437512/
 * Операции, выражения и инструкции							https://jsflow.org/docs/operators-expressions-statements/
-*	Временная мертвая зона												https://russianblogs.com/article/34231534838/
-* Var области видения, всплытие									https://learn.javascript.ru/var / https://doka.guide/js/closures/
-* Области видимости let и const									https://jsflow.org/docs/block-scope/ / https://learn.javascript.ru/closure
-*	Замыкания																			https://learn.javascript.ru/closures																									
-* Лексическое окружение													https://jsflow.org/docs/lex-env/
-* Рекурсия																			https://doka.guide/js/recursion/
-* EventLoop																			https://doka.guide/js/async-in-js/ // https://www.youtube.com/watch?v=zDlg64fsQow // http://latentflip.com/loupe/
-* axios																					https://my-js.org/docs/cheatsheet/axios
-* каррирование (currying)												https://thecode.media/currying/
 * Управ памятью, цикл. ссылка, сборщик мусора		https://developer.mozilla.org/ru/docs/Web/JavaScript/Memory_management
 *	Куки																					https://learn.javascript.ru/cookie
-* Преобразования типов в JavaScript							https://habr.com/ru/articles/709048/
-*	.valueOf .toPrimitive													https://learn.javascript.ru/object-conversion	https://learn.javascript.ru/object-toprimitive
+* каррирование (currying)												https://thecode.media/currying/
+* Сложность алгоритмов													https://www.youtube.com/watch?v=HekbUG3R2qQ&list=PLuFYDaTQKsepvN89nHukGhoznZhcBH1kA
+* Strict mode																		https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Strict_mode
 
-Вопросы по JS: ( 150 )
+*	Временная мертвая зона												https://russianblogs.com/article/34231534838/
+* Области видимости let и const									https://jsflow.org/docs/block-scope/ / https://learn.javascript.ru/closure
+* Лексическое окружение													https://jsflow.org/docs/lex-env/
+* Scope and Context в JS												http://ryanmorr.com/understanding-scope-and-context-in-javascript/
+* Var области видения, всплытие									https://learn.javascript.ru/var / https://doka.guide/js/closures/
+* Преобразования типов в JavaScript							https://habr.com/ru/articles/709048/
+*	Замыкания																			https://learn.javascript.ru/closures	https://habr.com/ru/articles/338462/																						
+* This																					https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this https://habr.com/ru/articles/785872/	https://habr.com/ru/companies/ruvds/articles/419371/
+* Рекурсия																			https://doka.guide/js/recursion/
+* EventLoop																			https://doka.guide/js/async-in-js/ // https://www.youtube.com/watch?v=zDlg64fsQow // http://latentflip.com/loupe/
+
+* axios																					https://my-js.org/docs/cheatsheet/axios
+*	.valueOf .toPrimitive													https://learn.javascript.ru/object-conversion	https://learn.javascript.ru/object-toprimitive
+* Proxy																					https://learn.javascript.ru/proxy
+* Symbol 																				https://learn.javascript.ru/symbol
+
+
+Вопросы по JS: ( 198 )
 6	11	14	20	37	45	48	55	56	65	70	79	92	98	104	114 119	129	130	132	143
-164	182	
+160	164 165 169	182	174	194	196
 https://my-js.org/docs/other/js-questions
 https://www.frontendinterviewhandbook.com/ru/javascript-questions/
 https://roadmap.sh/questions/javascript
 
 Вопросы по React:
 https://my-js.org/docs/other/react-questions
-	https://roadmap.sh/questions/react
+https://roadmap.sh/questions/react
 
 todo Q&A =================//
 
@@ -121,6 +126,33 @@ Object.freeze() делает невозможным добавление, уда
 	В итерируемых сущностях имеется протокол итератора. 
 	Мы можем реализовать такой протокол вручную, добавив в объект символ итератора ([Symbol.iterator]), 
 	который будет возвращать объект-генератор. 
+Оператор spread (распространения или распаковки, ...) применяется только к итерируемым (перебираемым) сущностям. 
+	Объекты таковыми не являются.
+
+
+
+* Методы объекта =============================================================================//
+Object.assign() 							используется для копирования значений всех собственных перечисляемых свойств в целевой объект
+Object.create() 							создаёт новый объект с указанным прототипом и свойствами
+Object.defineProperty() 			определяет новое или изменяет существующее свойство объекта и возвращает этот объект
+Object.entries() 							возвращает массив собственных перечисляемых свойств указанного объекта в формате [key, value]
+Object.fromEntries() 					преобразует список пар ключ-значение в объект
+Object.keys() 								возвращает массив из собственных перечисляемых свойств переданного объекта
+Object.values() 							возвращает массив значений перечисляемых свойств объекта
+Object.freeze() 							замораживает объект
+Object.isFrozen() 						определяет, был ли объект заморожен
+hasOwnProperty() 							возвращает логическое значение, указывающее, содержит ли объект указанное свойство
+Object.getOwnPropertyNames()	возвращает массив со всеми свойствами, независимо от того, перечисляемые они или нет
+
+* Методы Массива ============================================================================//
+Array.from()			Создаёт новый экземпляр Array из итерируемого или массивоподобного объекта
+Array.isArray()		Возвращает true если аргумент является массивом и false в противном случае
+Array.of()				Создаёт новый экземпляр Array с переменным количеством аргументов, независимо от количества или типа аргументов
+every()						Проверяет, удовлетворяют ли все элементы массива условию, заданному в передаваемой функции
+fill() 						Заполняет все элементы массива от начального до конечного индексов одним значением
+
+
+! ====================================================================================================//
 
 Выражение typeof ClassName возвращает function
 	Boolean([]) === true; 
@@ -142,5 +174,80 @@ Object.freeze() делает невозможным добавление, уда
 Но существует исключение для конструктора Function:
 	var func = new Function(); typeof func; // Вернёт 'function'
 
+//* Области видимости ====================================================================================================//
+	https://metanit.com/web/javascript/3.2.php
+	https://college.arthur-nesterenko.dev/javascript/hoisting
+Существуют два типа областей видимости: глобальная и локальная.
+Если переменная объявлена вне всех функций или фигурных скобок ({}), 
+	то считается, что она определена в глобальной области видимости.
+Переменные, которые используются только в определенной части кода,
+	считаются помещенными в локальную область видимости. Такие переменные называются локальными.
+
+В JavaScript выделяют два типа локальных областей видимости:
+	1. область видимости функции
+	2. область видимости блока
+
+Область видимости функции
+	Переменная, объявленная внутри функции, доступна только внутри функции.
+	Код снаружи функции не имеет к ней доступа.
+	При этом не зависит от того, что это за переменная - var или let, либо const
+Область видимости блока
+	Переменная, объявленная внутри фигурных скобок {} через const или let, доступна только внутри фигурных скобок.
+	Переменная, объявленная с помощью var, может использоваться вне блока.
+Блочная область видимости является частным случаем области видимости функции,
+	т.к. функции объявляются с фигурными скобками
+
+С помощью var можно использовать значение до того, как оно будет присвоено, и оно вернет undefined.
+Если сделать, то же самое с let - будет ReferenceError.
+
+Подъем функции в области видимости
+Функции, объявленные как «function declaration», всегда поднимаются наверх в текущей области видимости.
+Если же функция объявляется как «function expression», то такая функция не поднимается в текущей области видимости.
+
+Функции не имеют доступа к областям видимости других функций,когда они объявляются раздельно,
+	даже если одна функция используется в другой.
+Когда функция объявляется в другой функции, то внутренняя функция имеет доступ к переменным внешней функции.
+	В тоже время внешняя функция не имеет доступа к переменным внутренней функции.
+
+* домен/протокол/порт ==============================================================================================//
+URL обозначает Uniform Resource Locator.
+	URL это лишь адрес, который выдан уникальному ресурсу в интернете.
+	В теории, каждый корректный URL ведёт на уникальный ресурс.
+	Такими ресурсами могут быть HTML-страница, CSS-файл, изображение и т.д.
+
+протокол: http://
+	Он отображает, какой протокол браузер должен использовать.
+	Обычно это HTTP-протокол или его безопасная версия - HTTPS.
+	Интернет требует эти 2 протокола, но браузеры часто могут использовать и другие протоколы,
+	например mailto: (чтобы открыть почтовый клиент) или ftp: для запуска передачи файлов.
+
+Доменное имя: www.example.com
+	Оно означает, какой веб-сервер должен быть запрошен.
+	В качестве альтернативы может быть использован и IP-адрес,
+	но это делается редко, поскольку запоминать IP сложнее, и это не популярно в интернете.
+
+Порт :80
+	Он отображает технический параметр, используемый для доступа к ресурсам на веб-сервере.
+	Обычно подразумевается, что веб-сервер использует стандартные порты HTTP-протокола
+	(80 для HTTP и 443 для HTTPS) для доступа к своим ресурсам.
+	В любом случае, порт - это факультативная составная часть URL.
+
+Адрес ресурса на веб-сервере. /path/to/myfile.html
+	В прошлом, адрес отображал местоположение реального файла в реальной директории на веб-сервере.
+	В наши дни это чаще всего абстракция, позволяющая обрабатывать адреса и отображать тот или иной контент из баз данных.
+
+Дополнительные параметры ?key1=value1&key2=value2
+	Дополнительные параметры, которые браузер сообщает веб-серверу.
+	Эти параметры - список пар ключ/значение, которые разделены символом &.
+	Веб-сервер может использовать эти параметры для исполнения
+	дополнительных команд перед тем как отдать ресурс.
+	Каждый веб-сервер имеет свои собственные правила обработки этих параметров
+	и узнать их можно, только спросив владельца сервера.
+
+Якорь #SomewhereInTheDocument
+	Якорь на другую часть того же самого ресурса.
+	Якорь представляет собой вид "закладки" внутри ресурса, которая переадресовывает браузер на "заложенную" часть ресурса.
+	В HTML-документе, например, браузер может переместиться в точку, где установлен якорь;
+	в видео- или аудио-документе браузер может перейти к времени, на которое ссылается якорь.
 
 */
