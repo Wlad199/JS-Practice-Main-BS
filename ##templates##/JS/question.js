@@ -28,14 +28,12 @@
 ! Debugger
 ! Основы Node.js (Создание сервера, встроенные модули)
 
-react (https://practicum.yandex.ru/react/?utm_source=yandex&utm_medium=cpc&utm_campaign=Yan_Net_RF_Prog_reac_b2c_Gener_Regular_1_460_upskill&utm_content=sty_context%3As_yandex.ru%3Acid_103839286%3Agid_5365194792%3Akw_%3Apid_61579094%3Aaid_15590379430%3Acrid_0%3Arid_61579094%3Ap_0%3Apty_none%3Amty_%3Amkw_%3Adty_desktop%3Acgcid_17978231%3Arn_Ярославль%3Arid_16&utm_term=&yclid=14094681718427746303)
 ! WebSocket
 ! Деплой
 ! Jest
 ! Роутинг
 ! Рефакторинг
 ! Безопасность
-
 
 ! ====================================================================================================//
 * Интернет																			https://www.youtube.com/watch?v=xnx2JDSV87Y
@@ -53,13 +51,13 @@ react (https://practicum.yandex.ru/react/?utm_source=yandex&utm_medium=cpc&utm_c
 * Сложность алгоритмов													https://www.youtube.com/watch?v=HekbUG3R2qQ&list=PLuFYDaTQKsepvN89nHukGhoznZhcBH1kA
 * Strict mode																		https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Strict_mode
 
+* Лексическое окружение													https://jsflow.org/docs/lex-env/	https://www.youtube.com/watch?v=GkmoRy0Kv14	https://www.youtube.com/watch?v=Rc49Z6CNJj0
+*	Замыкания																			https://learn.javascript.ru/closures	https://habr.com/ru/articles/338462/																							
 *	Временная мертвая зона												https://russianblogs.com/article/34231534838/
 * Области видимости let и const									https://jsflow.org/docs/block-scope/ / https://learn.javascript.ru/closure
-* Лексическое окружение													https://jsflow.org/docs/lex-env/
 * Scope and Context в JS												http://ryanmorr.com/understanding-scope-and-context-in-javascript/
 * Var области видения, всплытие									https://learn.javascript.ru/var / https://doka.guide/js/closures/
 * Преобразования типов в JavaScript							https://habr.com/ru/articles/709048/
-*	Замыкания																			https://learn.javascript.ru/closures	https://habr.com/ru/articles/338462/																						
 * This																					https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this https://habr.com/ru/articles/785872/	https://habr.com/ru/companies/ruvds/articles/419371/
 * Рекурсия																			https://doka.guide/js/recursion/
 * EventLoop																			https://doka.guide/js/async-in-js/ // https://www.youtube.com/watch?v=zDlg64fsQow // http://latentflip.com/loupe/
@@ -70,9 +68,9 @@ react (https://practicum.yandex.ru/react/?utm_source=yandex&utm_medium=cpc&utm_c
 * Symbol 																				https://learn.javascript.ru/symbol
 
 
-Вопросы по JS: ( 198 )
+Вопросы по JS: ( 215 )
 6	11	14	20	37	45	48	55	56	65	70	79	92	98	104	114 119	129	130	132	143
-160	164 165 169	182	174	194	196
+160	164 165 169	182	174	194	196	207	
 https://my-js.org/docs/other/js-questions
 https://www.frontendinterviewhandbook.com/ru/javascript-questions/
 https://roadmap.sh/questions/javascript
