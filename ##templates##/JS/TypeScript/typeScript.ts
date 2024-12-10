@@ -367,70 +367,98 @@ function calculateArea(a: number, b?: number): Square | Rect {...}
 	TS автоматически подставит нужный тип интерфейса. Утверждение в таком случае не нужно
 Такая же ситуация и при создании новых элементов через команду createElement()
 
-! ====================================================================================================//
-
-const a: (number | string)[] = [1, "lalaka", 3];
 
 
 ! ====================================================================================================//
-! Tasks ====================================================================================================//
+* React TypeScript ===================================================================================//
 ! ====================================================================================================//
-	Запрос 
-{
-	"topicId": 5,
-		"status": "published" // "draft", "deleted"
+
+##Children
+	Существует два распространённых способа описания дочерних элементов компонента. 
+		Первый — использовать тип React.ReactNode, который является объединением всех возможных типов, 
+			которые могут быть переданы в качестве дочерних элементов в JSX:
+				interface ModalRendererProps {
+				children: React.ReactNode;
+				}
+		Второй - использовать тип React.ReactElement, который включает только элементы JSX, 
+			а не примитивы JavaScript, такие как строки или числа:
+				interface ModalRendererProps {
+					title: string;
+					children: React.ReactElement;
+				}
+
+## Button
+type ButtonProps = {
+	handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
- Ответ 
-[
-	{
-		"question": "Как осуществляется доставка?",
-		"answer": "быстро!",
-		"tags": [
-			"popular",
-			"new"
-		],
-		"likes": 3,
-		"status": "published"
-	}
+
+## Input
+type InputProps = {
+	value: string,
+	handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+	ИЛИ
+const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {}
+
+##CSS
+type StyleProps = {
+	styles: React.CSSProperties
+}
+const Styles = ({ styles }: StyleProps) => (
+		<div style={styles}>
+		</div>
+		)
+<Styles styles={{ color: 'green', fontSize: 18, paddingTop: 20 }} />
+
+## useRef
+const inputRef = useRef<HTMLInputElement>(null)
+
+
+
+
+
+
+
+! Examples ====================================================================================================//
+
+const Greet = ({ name, messageCount, isLoggedIn }: IGreetProps) => {}
+
+? Типизация массива объектов
+const USERS = [
+	{ name: 'Alex', age: 18, id: 562 },
+	{ name: 'John', age: 58, id: 552 },
+	{ name: 'Bob', age: 15, id: 592 },
+	{ name: 'Bob', age: 11, id: 762 },
 ]
-	Ф-я
-async function getFaqs(req) {
-	const res = await fetch('/faqs', {
-		method: 'POST',
-		body: JSON.stringify(req)
-	});
-	const data = await res.json();
-	return data;
+interface iUsers {
+	users: {
+		id: number,
+		name: string,
+		age: number
+	}[]
 }
- todo Anwer =================//
-enum QuestionStatus {
-	Published = 'published',
-	Draft = 'draft',
-	Deleted = 'deleted'
-}
+<UsersList users={USERS} />
 
-async function getFaqs(req: {
-	topicId: number,
-	status?: QuestionStatus
-}): Promise<{
-	question: string,
-	answer: string,
-	tags: string[],
-	likes: number,
-	status: string
-}[]> {
-	const res = await fetch('/faqs', {
-		method: 'POST',
-		body: JSON.stringify(req)
-	});
-	const data = await res.json();
-	return data;
+? Типизация Todo
+export interface ITodo {
+	id: number,
+	title: string,
+	complete: boolean
+}
+const [todos, setTodos] = useState<ITodo[]>([])
+
+
+interface ITodoListProps{
+	items: ITodo[]
+}
+const TodoList: React.FC<ITodoListProps> = () => {
+	return (<div></div>)
 }
 
 
 
-! ??? ====================================================================================================//
-Маппинг
+
+
 
 
 

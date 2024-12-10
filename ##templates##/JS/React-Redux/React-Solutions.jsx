@@ -129,6 +129,20 @@ inputRef.current.value 								- Вывод
 
 	import { About, Home } from './components/index'
 
+## Изменить свойства объекта
+	const changeStatus = (id: string): void => {
+		setTodos(todos.map(todo => {
+			if (todo.id !== id) {
+				return todo
+			}
+			return {
+				...todo,
+				complete: !todo.complete
+			}
+		}
+		))
+	}
+
 
 
 
