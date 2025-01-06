@@ -7,6 +7,8 @@
 npm install -g typescript		Установка typescript
 npm i ts-node -g						Установка ts-node
 
+npx create-react-app my-app --template			typescript React+TS
+
 tsc -help										Список команд
 tsc --init									Инициализировать проект
 tsc index.ts (tsc)					Запустить компилятор

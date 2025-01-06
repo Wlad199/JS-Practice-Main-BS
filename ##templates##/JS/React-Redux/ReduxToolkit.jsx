@@ -19,9 +19,8 @@ useSelector()​ позволяет извлекать данные из сос�
 createAsyncThunk(): принимает тип операции и функцию, возвращающую промис, и генерирует thunk, 
 	отправляющий типы операции pending/fulfilled/rejected на основе промиса
 
-
-
 ! Base template ====================================================================================================//
+* JSX Template =====================================================================================================//
 ? Store =================//
 import { configureStore } from '@reduxjs/toolkit'
 import counterReducer from './counterSlice'
@@ -57,29 +56,86 @@ export default function App() {
 	const dispatch = useDispatch()
 	return (
 		<>
-			<button onClick={() => dispatch(increment())}>+++</button>
-			<span>{count}</span>
-			<button onClick={() => dispatch(decrement())}>---</button>
+		<button onClick={() => dispatch(increment())}>+++</button>
+		<span>{count}</span>
+		<button onClick={() => dispatch(decrement())}>---</button>
 		</>
-	)
+		)
+	}
+	
+	? index =================//
+	import { Provider } from 'react-redux'
+	import store from './store/store'
+	<Provider store={store}>
+	<App />
+	</Provider>
+	
+* TSX Template =====================================================================================================//
+? Store =================//
+import { configureStore } from "@reduxjs/toolkit";
+import todoReducer from './todoSlice'
+
+const store = configureStore({
+	reducer: {
+		ttodos: todoReducer
+	}
+})
+
+export default store
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
+
+? Slice =================//
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+type Todo = {
+	id: string;
+	title: string;
+	completed: boolean
 }
 
-? index =================//
-import { Provider } from 'react-redux'
-import store from './store/store'
-	<Provider store={store}>
-		<App />
-	</Provider>
+type TodoState = {
+	list: Todo[]
+}
+
+const initialState: TodoState = {
+	list: []
+}
+
+const todoSlice = createSlice({
+	name: 'todos',
+	initialState,
+	reducers: {
+		addTodo(state, action: PayloadAction<string>) {
+			state.list.push({
+				id: new Date().toISOString(),
+				title: action.payload,
+				completed: false,
+			})
+		}
+	}
+})
+
+export const { addTodo } = todoSlice.actions
+export default todoSlice.reducer
+
+? hooks =================//
+import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux'
+import type { AppDispatch, RootState } from './store/store'
+
+export const useAppDispatch = () => useDispatch<AppDispatch>()
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 ! Async request =======================================================================================//
-
+* JSX Template ========================================================================================//
 ? store (async) =================//
 import { configureStore } from '@reduxjs/toolkit'
 import todoReduser from './Components/todoSlice'
 
 export default configureStore({
 	reducer: {
-		todos: todoReduser
+		ttodos: todoReduser
 	}
 })
 
@@ -100,7 +156,7 @@ export const fetchTodo = createAsyncThunk(
 )
 
 const initialState = {
-	todos: [],
+	ttodos: [],
 	status: null,
 	error: null
 }

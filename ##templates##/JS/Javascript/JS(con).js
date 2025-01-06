@@ -11,7 +11,7 @@ Math.random()										Рандом
 Math.max(5, 85, -49); 					Ищет максимум
 Math.min(5, 85, -49); 					Ищет минимум
 Math.pow(5, 8);									Возвести в степень
-Math.sqrt(PositiveBumber)				возвращает квадратный корень числа
+Math.sqrt(PositiveNumber)				возвращает квадратный корень числа
 1.005 + Number.EPSILON					Компенсировать погрешности
 Num.toFixed(1); 								кол-во знаков после запятой (как Math.round). //?Возвращает строку!!!
 Num.toString()									Привести к строке
