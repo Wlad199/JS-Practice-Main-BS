@@ -1,5 +1,7 @@
-function sortByLength(array) {
-	return array.sort((a, b) => b.length - a.length)
-}
 
-console.log(sortByLength([["Beg", "Life", "I", "To"]]))
+(async () => {
+	fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+		.then(response => response.json())
+		.then(data => console.log(data))
+})()
+

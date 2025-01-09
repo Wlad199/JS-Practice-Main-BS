@@ -310,6 +310,9 @@ npm install classnames
 ## date-fns для работы с датами
 npm i date-fns
 
+## sass
+npm i sass
+
 ! Tasks ===================================================
 
 ? 1.0 
