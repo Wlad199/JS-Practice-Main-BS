@@ -9,10 +9,14 @@
 
 ! Получить данные с сайта разными способами и обработать
 
+? JS Tasks
 факториал
 числа Фибоначчи
 уникальность элементов массива
 проверка на сбалансированность скобок внутри текста
+Анаграммы 
+считать количество слов в предложении
+
 сортировки (mergeSort, insertionSort, bubbleSort, quickSort)
 деревья (обход в глубину / обход в ширину / нахождение кратчайшего пути между узлами)
 
@@ -621,8 +625,27 @@ Promise.all([fetchPosts(), fetchTodos()])
 	.catch(message => console.log('Error', message))
 
 ? ====================================================================================================//
+Реализуйте функцию getParams(), которая принимает на вход строку запроса (query string) 
+	и возвращает параметры в виде объекта
+	getParams('per=10&page=5');
+	{ per: '10', page: '5' }
+	getParams('name=hexlet&count=3&order=asc');
+	{ name: 'hexlet', count: '3', order: 'asc' }
 
+const getParams = (query: string) => {
+	let a = query.split('&')
+	const res: any = {}
 
+	const result = a.reduce((acc, part) => {
+		const [key, value] = part.split('=')
+		acc[key] = value
+		return acc
+	}, res)
+
+	return result
+}
+
+? =================//
 
 
 

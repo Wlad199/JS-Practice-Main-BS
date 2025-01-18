@@ -14,7 +14,7 @@ Object.values, Object.entries, for in, toString, JSON.parse, JSON.stringify, Obj
 Array
 flat, forEach, concat, map, some, unshift, length, indexOf, toString, push, pop,
 	includes, reduce, find, Array.isArray, filter, shift, reverse, join
-
+	Array.of(), every(), fill() 
 
 ? Mistakes
 
@@ -70,7 +70,7 @@ Array			6 0 0 0 1 1 0 1 2
 
 ? Object
 		Удалить ключ и свойство
-		проверка наличия свойства в объекте
+		проверка наличия свойства в объекте  (не наследуемых!!!)
 		проверка наличия свойства в объекте или его прототипе
 		Преобразовать объект в JSON
 		Преобразовать JSON в объект
