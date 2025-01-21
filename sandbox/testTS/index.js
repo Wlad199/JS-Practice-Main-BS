@@ -1,11 +1,9 @@
-var getParams = function (query) {
-    var a = query.split('&');
-    var res = {};
-    var result = a.reduce(function (acc, part) {
-        var _a = part.split('='), key = _a[0], value = _a[1];
-        acc[key] = value;
-        return acc;
-    }, res);
-    return result;
+var pow = function (a, b) {
+    if (b === 1) {
+        return a;
+    }
+    else {
+        return a * pow(a, b - 1);
+    }
 };
-console.log(getParams('per=10&page=5'));
+console.log(pow(3, 5));

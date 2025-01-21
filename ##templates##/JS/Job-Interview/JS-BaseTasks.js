@@ -16,6 +16,7 @@
 проверка на сбалансированность скобок внутри текста
 Анаграммы 
 считать количество слов в предложении
+Хэштрование
 
 сортировки (mergeSort, insertionSort, bubbleSort, quickSort)
 деревья (обход в глубину / обход в ширину / нахождение кратчайшего пути между узлами)
@@ -225,6 +226,8 @@ try {
 и увеличивающую возраст на 1год
 Не мутировать исходный объект!!!
 Вернуть новый объект
+
+3. Написать рекурсивную ф-ю для копирования вложенных объектов
 
 todo Копирование объекта
 Изменения внутри объекта будут видны всем у кого есть ссылка на этот объект.
@@ -493,160 +496,18 @@ todo get и set
 		}
 
 
+* Рекурсия =================//
+	Написать ф-ю возведения в степень через рекурсию
 
-! ====================================================================================================//
-! SOLUTIONS ====================================================================================================//
-! ====================================================================================================//
-
-## Мутация массива через forEach =================//
-const numbers = [1, 2, 3, 4, 5]
-
-Не мутирует 
-	numbers.forEach(e => e * 2)
-Мутирует 
-	numbers.forEach((e, i, arr) => arr[i] = e * 2)
-
-
-## Ф-я сортировки массива объектов со значениями строк и чисел ========//
-function sortCourses(courses, key) {
-	const sortedCourses = [...courses]
-	sortedCourses.sort((a, b) => (a[key] > b[key] ? 1 : -1))
-	return sortedCourses
-}
-
-## Random function =================//
-(Math.random() * (max - min + 1) + min);
-
-## delete
-Оператор delete возвращает логическое значение: true при успешном удалении, иначе - false.
-Однако, переменные, объявленные с помощью ключевых слов, не могут быть удалены с помощью delete.
-
-## Округление в низ
-Math.floor(n)
-(~~n)
-
-## Запуск ф-ии по условию
-if(a === 5){
-	f01()
-} else{
-	f02()
-}
-или
-(a===5 ? f01 : f02)()
-
-## Сортировка массива по дате (reverse)
-[
-	{id: '2', date: '2024-10-11T10:47:13.384Z'}
-	{id: '1', date: '2024-10-11T10:42:13.384Z'}
-]
-
-posts.slice().sort((a, b) => b.date.localeCompare(a.date))
-slice создает неглубокую копию массива
-
-
-? Callbach Hell ======================================================//
-function fetchUserInfo(callback) {
-	setTimeout(() => {
-		const data = { id: 1, name: 'Alex' }
-		callback(data)
-	}, 1000)
-}
-
-function fetchUserGames(id, callback) {
-	setTimeout(() => {
-		const data = ['game1', 'game2']
-		callback(data)
-	}, 1000)
-}
-
-function run() {
-	fetchUserInfo((userInfo) => {
-		console.log(userInfo)
-		fetchUserGames(userInfo.id, (userGames) => {
-			console.log(userGames)
-		})
-	})
-}
-
-run()
-
-## На промисах
-function fetchUserData() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			const data = { id: 1, name: 'Alex' }
-			resolve(data)
-		}, 1000)
-	})
-}
-
-function fetchUserGames(id) {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			const data = ['game1', 'game2', 'game3']
-			resolve(data)
-		}, 1000)
-	})
-}
-
-function run() {
-	fetchUserData()
-		.then((userData) => {
-			console.log(userData)
-			return fetchUserGames(userData.id)
-		})
-		.then((userGames) => {
-			console.log(userGames)
-		})
-}
-
-run()
-
-## Promise example
-function fetchPosts() {
-	return new Promise((res, rej) => {
-		fetch('https://jsonplaceholder.typicode.com/posts')
-			.then(data => res(data.json()))
-	})
-}
-
-function fetchTodos() {
-	return new Promise((res, rej) => {
-		fetch('https://jsonplaceholder.typicode.com/todos')
-			.then(data => res(data.json()))
-	})
-}
-
-Promise.all([fetchPosts(), fetchTodos()])
-	.then(data => {
-		console.log(data[0])
-		console.log(data[1])
-	})
-	.catch(message => console.log('Error', message))
-
-? ====================================================================================================//
-Реализуйте функцию getParams(), которая принимает на вход строку запроса (query string) 
-	и возвращает параметры в виде объекта
-	getParams('per=10&page=5');
-	{ per: '10', page: '5' }
-	getParams('name=hexlet&count=3&order=asc');
-	{ name: 'hexlet', count: '3', order: 'asc' }
-
-const getParams = (query: string) => {
-	let a = query.split('&')
-	const res: any = {}
-
-	const result = a.reduce((acc, part) => {
-		const [key, value] = part.split('=')
-		acc[key] = value
-		return acc
-	}, res)
-
-	return result
-}
-
-? =================//
-
+todo Рекурсия
+	const pow = (a: number, b: number): number => {
+		if (b === 1) {
+			return a
+		} else {
+			return a * pow(a, b - 1)
+		}
+	}
+	console.log(pow(3, 5))
 
 
 */

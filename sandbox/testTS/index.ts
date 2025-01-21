@@ -1,17 +1,12 @@
 
+const pow = (a: number, b: number): number => {
 
-const getParams = (query: string) => {
-	let a = query.split('&')
-	const res: any = {}
+	if (b === 1) {
+		return a
+	} else {
+		return a * pow(a, b - 1)
+	}
 
-	const result = a.reduce((acc, part) => {
-		const [key, value] = part.split('=')
-		acc[key] = value
-		return acc
-	}, res)
-
-	return result
 }
 
-
-console.log(getParams('per=10&page=5'))
+console.log(pow(3, 5))

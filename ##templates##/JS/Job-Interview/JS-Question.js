@@ -46,13 +46,13 @@
 * Чистые функции																https://habr.com/ru/articles/437512/
 * Операции, выражения и инструкции							https://jsflow.org/docs/operators-expressions-statements/
 * Управ памятью, цикл. ссылка, сборщик мусора		https://developer.mozilla.org/ru/docs/Web/JavaScript/Memory_management
-*	Куки																					https://learn.javascript.ru/cookie
+*	Куки																					https://www.youtube.com/watch?v=s04Vjlcgwco	https://learn.javascript.ru/cookie
 * каррирование (currying)												https://thecode.media/currying/
 * Сложность алгоритмов													https://www.youtube.com/watch?v=HekbUG3R2qQ&list=PLuFYDaTQKsepvN89nHukGhoznZhcBH1kA
 * Strict mode																		https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Strict_mode
 
 * Лексическое окружение													https://jsflow.org/docs/lex-env/	https://www.youtube.com/watch?v=GkmoRy0Kv14	https://www.youtube.com/watch?v=Rc49Z6CNJj0
-*	Замыкания																			https://learn.javascript.ru/closures	https://habr.com/ru/articles/338462/																							
+*	Замыкания												 							https://learn.javascript.ru/closures	https://habr.com/ru/articles/338462/																							
 *	Временная мертвая зона												https://russianblogs.com/article/34231534838/
 * Области видимости let и const									https://jsflow.org/docs/block-scope/ / https://learn.javascript.ru/closure
 * Scope and Context в JS												http://ryanmorr.com/understanding-scope-and-context-in-javascript/
@@ -202,7 +202,7 @@ fill() 						Заполняет все элементы массива от на
 Функции, объявленные как «function declaration», всегда поднимаются наверх в текущей области видимости.
 Если же функция объявляется как «function expression», то такая функция не поднимается в текущей области видимости.
 
-Функции не имеют доступа к областям видимости других функций,когда они объявляются раздельно,
+Функции не имеют доступа к областям видимости других функций, когда они объявляются раздельно,
 	даже если одна функция используется в другой.
 Когда функция объявляется в другой функции, то внутренняя функция имеет доступ к переменным внешней функции.
 	В тоже время внешняя функция не имеет доступа к переменным внутренней функции.
