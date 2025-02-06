@@ -73,6 +73,8 @@ https://roadmap.sh/frontend
 			Кастомные хуки
 	Redux-toolkit 
 	Router-Dom
+		Хуки:
+			useParams
 ? Git
 
 

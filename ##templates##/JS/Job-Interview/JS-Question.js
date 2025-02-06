@@ -57,6 +57,7 @@
 * Области видимости let и const									https://jsflow.org/docs/block-scope/ / https://learn.javascript.ru/closure
 * Scope and Context в JS												http://ryanmorr.com/understanding-scope-and-context-in-javascript/
 * Var области видения, всплытие									https://learn.javascript.ru/var / https://doka.guide/js/closures/
+* Поднятие (Hoisting)														https://habr.com/ru/articles/486820/#18	https://developer.mozilla.org/ru/docs/Glossary/Hoisting
 * Преобразования типов в JavaScript							https://habr.com/ru/articles/709048/
 * This																					https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this https://habr.com/ru/articles/785872/	https://habr.com/ru/companies/ruvds/articles/419371/
 * Рекурсия																			https://doka.guide/js/recursion/
@@ -74,6 +75,9 @@
 https://my-js.org/docs/other/js-questions
 https://www.frontendinterviewhandbook.com/ru/javascript-questions/
 https://roadmap.sh/questions/javascript
+
+https://habr.com/ru/articles/486820
+20
 
 Вопросы по React:
 https://my-js.org/docs/other/react-questions
@@ -126,6 +130,18 @@ Object.freeze() делает невозможным добавление, уда
 	который будет возвращать объект-генератор. 
 Оператор spread (распространения или распаковки, ...) применяется только к итерируемым (перебираемым) сущностям. 
 	Объекты таковыми не являются.
+
+Контекст выполнения — это среда, в которой выполняется код. 
+	Контекст выполнения имеет две фазы — компиляция и собственно выполнение.
+	Компиляция. В этой фазе функциональные выражения и переменные, объявленные с помощью ключевого слова «var», 
+		со значением undefined поднимаются в самый верх глобальной (или функциональной) области видимости (как бы перемещаются в начало нашего кода. 
+		Это объясняет, почему мы можем вызывать функции до их объявления — прим. пер.).
+	Выполнение. В этой фазе переменным присваиваются значения, а функции (или методы объектов) вызываются или выполняются.
+Область видимости — это место, где (или откуда) мы имеем доступ к переменным или функциям.
+	JS имеем три типа областей видимости: глобальная, функциональная и блочная (ES6).
+	Область видимости — это также набор правил, по которым осуществляется поиск переменной.
+	Поиск осуществляется по ближайшим к текущей областям видимости и останавливается с нахождением переменной. 
+	Это называется цепочкой областей видимости (Scope Chain).
 
 
 

@@ -3,38 +3,49 @@ https://it-dev-journal.ru/articles/polnoe-rukovodstvo-po-react-router-v6-osnovy-
 ? Navigation =================//
 (https://www.youtube.com/playlist?list=PLiZoB8JBsdznY1XwBcBhHL9L7S_shPGVE)
 
-App:
+## index:
+	<BrowserRouter>
+		<App />
+	</BrowserRouter>
+
+## App:
 	При вложенном роутинге дочерние маршруты относительны родительского
 	Т.е.все ссылки из < Menu /> относительны < MainLayout />
 	index для пути по - умолчанию, остальные пути относительны path = '/'
-		<BrowserRouter>
-		<Routes>
-			<Route path='/' element={<MainLayout />}>
-				<Route index element={<Home />} />
-				<Route path='about' element={<About />} />
-				<Route path='contacts' element={<Contacts />} />
-				<Route path='*' element={<NotFound />} />
-			</Route>
-		</Routes>
-		</BrowserRouter>
+	<Routes>
+		<Route path='/' element={<MainLayout />}>
+			<Route index element={<Home />} />
+			<Route path='about' element={<About />} />
+			<Route path='contacts' element={<Contacts />} />
+			<Route path='posts/:id' element={<Singlepage />} />
+			<Route path='*' element={<NotFound />} />
+		</Route>
+	</Routes>
 
-MainLayout:
+## MainLayout:
 	Меню с навигацией и Outlet с активным дочерним компонентом
 	<>
-			<Menu />
-			<Outlet />
-		</>
+		<Menu />
+		<Outlet />
+	</>
 
-Menu:
+## Menu:
 	'/' отвечает за абсолютные ссылки, без него - ссылки относительны.
 		относительные ссылки не сломаются при изменении ссылки их родителя
 	'.' означает, что путь как у родителя
-	< nav >
+	<nav >
 			<Link to='.'>Home</Link>
 			<Link to='about'>About</Link>
 			<Link to='contacts'>Contacts</Link>
-		</ >
+	</nav >
 
+## Singlepage:
+	const { id } = useParams()
+		return (
+			<div>
+				{id}
+			</div>
+		)
 
 
 
