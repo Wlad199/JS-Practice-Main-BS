@@ -61,7 +61,9 @@
 
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue';
+import { useVuelidate } from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
 
 
 const form = ref({
@@ -104,6 +106,45 @@ const themes = ref([
 	}
 ])
 
+const rules = computed(() => {
+	return {
+		login: {
+			simpleValidator(value) {
+				console.log(value)
+				return value.length > 5
+			}
+		}
+	}
+})
+
+
+//const rules = {
+//	//firstName: { required }, // Matches state.firstName
+//	//lastName: { required }, // Matches state.lastName
+//	//contact: {
+//	//	email: { required, email } // Matches state.contact.email
+//	//}
+
+//	form: {
+//		login: {
+//			simpleValidator(value) {
+//				console.log(value)
+//				return value.length > 5
+//			}
+//		}
+//	}
+
+//	//login: { required }
+//}
+
+const v$ = useVuelidate(rules, form)
+
+const checkForm = () => {
+	this.$v.form.$touch()
+	if (!this.$v.form.$error) {
+		console.log('Валидация прошла успешно')
+	}
+}
 
 
 

@@ -281,6 +281,8 @@ react-content-loader
 Подключить пакет: https://www.npmjs.com/package/react-icons 
 	(npm i react-icons)
 Выбрать иконку: https://react-icons.github.io/react-icons/
+Или использовать primeicons:
+primeicons https://github.com/primefaces/primeicons
 
 ## Generator Keys =================//
 https://www.npmjs.com/package/uuid (npm i uuid)
