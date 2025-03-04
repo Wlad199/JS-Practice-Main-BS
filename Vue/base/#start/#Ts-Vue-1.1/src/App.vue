@@ -1,7 +1,4 @@
-<template>
-	<div class="container">
-	</div>
-</template>
+<template></template>
 
 <script setup lang="ts">
 </script>
