@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,regular,500,600,700);
+
+body {
+	font-family: 'Poppins' sans-serif;
+}
+
+input {
+	outline: 1px solid #000;
+}
+
+.weather {
+	&__date {
+		margin-bottom: 30px;
+	}
+}
