@@ -14,6 +14,18 @@
 			"@/*": [
 				"./src/*"
 			]
-		}
+		},
+		"lib": [
+			"dom",
+			"es6"
+		],
+		// Проблема с импортом Json в ts
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		//"module": "commonjs",
+		//"moduleResolution": "node",
+		//"outDir": "dist",
+		//"rootDir": "src",
+		//"target": "es6",
 	}
 }

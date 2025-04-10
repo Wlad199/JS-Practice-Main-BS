@@ -1,33 +1,49 @@
-input {
-	border: 1px solid #000;
-	margin: 5px;
+body {
+	background-color: #fcf8f5;
+	margin: 40px 0;
+	position: relative;
+
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+.container {
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 0 15px;
 
 }
 
-::placeholder {
-	font-size: 14px;
-	padding: 0 5px;
-}
+.lock {}
 
-button {
-	background-color: #e53e30;
-	padding: 5px 10px;
-	border-radius: 5px;
-	margin: 5px;
-	user-select: none;
+.wrapper {
+	display: flex;
+	position: relative;
+
+
+	@media (max-width: 1100px) {
+		display: block;
+	}
 }
 
 h1 {
-	text-align: center;
-	font-size: 30px;
-	padding: 10px 0;
+	font-size: 36px;
+	font-weight: 700;
+	margin-bottom: 25px;
 }
 
-button.tag {
-	background-color: transparent;
-	border: 1px dotted #000
+.cart {
+	flex: 0 0 400px;
 }
 
-button.tag.active {
-	background-color: #fcc31f;
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 10;
+	background-color: rgba(#000, 0.7);
+	overflow: auto;
 }

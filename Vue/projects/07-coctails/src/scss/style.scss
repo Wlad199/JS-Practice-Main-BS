@@ -1,0 +1,36 @@
+body {
+	font-family: Montserrat;
+	background-color: #230312;
+	padding: 0 15px;
+}
+
+.cocktail {
+	&__container {
+		max-width: 2000px;
+		margin: 0 auto;
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__top {
+		position: fixed;
+		width: 100%;
+		z-index: 5;
+		background-color: #230312;
+	}
+
+	&__content {
+		padding-top: 180px;
+		flex: 1 1 auto;
+
+		@media (max-width: 560px) {
+			padding-top: 215px;
+		}
+
+		@media (max-width: 370px) {
+			padding-top: 250px;
+		}
+	}
+}
