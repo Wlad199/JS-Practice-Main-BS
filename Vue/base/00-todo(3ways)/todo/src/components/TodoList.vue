@@ -1,4 +1,4 @@
-<template>
+<!--<template>
 	<h3>Todo List:</h3>
 	<ul v-for="{ text, id, isComplete } in props.todo" :key="id">
 		<li>
@@ -28,4 +28,4 @@ const changeStatusHandler = (id: string) => {
 
 </script>
 
-<style scoped lang='scss'></style>
+<style scoped lang='scss'></style>-->

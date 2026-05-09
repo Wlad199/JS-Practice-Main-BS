@@ -1,4 +1,4 @@
-<template>
+<!--<template>
 	<h1>Todo</h1>
 	<AddTodo @inputData="addNewTodo" />
 	<TodoList
@@ -42,4 +42,4 @@ const changeStatus = (id: string) => {
 
 </script>
 
-<style scoped lang='scss'></style>
+<style scoped lang='scss'></style>-->

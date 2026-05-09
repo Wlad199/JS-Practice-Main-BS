@@ -1,4 +1,4 @@
-<template>
+<!--<template>
 	<input
 		type="text"
 		placeholder="enter the message"
@@ -27,4 +27,4 @@ const transferData = () => {
 
 </script>
 
-<style scoped lang='scss'></style>
+<style scoped lang='scss'></style>-->
