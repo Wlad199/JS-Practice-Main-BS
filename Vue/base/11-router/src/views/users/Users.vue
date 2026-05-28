@@ -2,7 +2,7 @@
 	<h1>Users</h1>
 	<ul>
 		<li v-for="user in users" :key="user.id">
-			<router-link :to="{ name: 'user', params: { id: user.id } }">
+			<router-link :to="{ name: 'User', params: { id: user.id } }">
 				<h2>
 					{{ user.name }}
 				</h2>
